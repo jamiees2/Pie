@@ -189,9 +189,6 @@
     <Compile Include="FunctionalExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\README">
-      <Link>README</Link>
-    </None>
     <None Include="..\TODO">
       <Link>TODO</Link>
     </None>

@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SysConsole = System.Console;
 
-namespace Pie.Console
+namespace Pie.Output
 {
     public class PieConsole
     {
@@ -17,8 +16,8 @@ namespace Pie.Console
         /// <returns>What was entered, but converted to the specified type</returns>
         public static T Read<T>(string i)
         {
-            SysConsole.Write(i + " ");
-            return SysConsole.ReadLine().As<T>();
+            Console.Write(i + " ");
+            return Console.ReadLine().As<T>();
         }
 
         /// <summary>
@@ -28,7 +27,7 @@ namespace Pie.Console
         /// <returns>What was entered, but converted to the specified type</returns>
         public static T Read<T>()
         {
-            return SysConsole.ReadLine().As<T>();
+            return Console.ReadLine().As<T>();
         }
 
         /// <summary>
@@ -38,7 +37,7 @@ namespace Pie.Console
         /// <param name="p">The values</param>
         public static void WriteF(string i,params object[] p)
         {
-            SysConsole.Write(string.Format(i,p));
+            Console.Write(string.Format(i,p));
         }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace Pie.Console
         /// <param name="p">The values</param>
         public static void WriteFLine(string i, params object[] p)
         {
-            SysConsole.WriteLine(string.Format(i,p));
+            Console.WriteLine(string.Format(i,p));
         }
     }
 }
