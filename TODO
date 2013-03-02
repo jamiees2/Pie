@@ -13,3 +13,19 @@
  
 	- Cycle detection.
 	- Add arithmetic overflow checks.
+
+PieConsole:
+	1. Automatic conversion
+		Being able to do something like:
+			int width = PieConsole.Read<int>();
+
+	2. Easy comprehension
+		Being able to do:
+			string width = PieConsole.Read("Width: ");
+		instead of the other complicated stuff.
+
+	3. Instead of outputting strings with tons of +'s
+		then something like:
+			PieConsole.WriteF("My {0} awesome output", "really");
+
+	4. 
