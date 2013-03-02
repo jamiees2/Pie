@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D489AA48-352B-4B07-AD7C-F02E49212D94}</ProjectGuid>
+    <ProjectGuid>{4F01C73C-FE2D-49A5-8142-B718F8F8CDB5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Pie</RootNamespace>
@@ -184,6 +184,7 @@
     <Compile Include="Strings\StringExtensions.cs" />
     <Compile Include="Time\TimeUtils.cs" />
     <Compile Include="IO\Bencoding.cs" />
+    <Compile Include="Units\Metric.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="FunctionalExtensions.cs" />
   </ItemGroup>
