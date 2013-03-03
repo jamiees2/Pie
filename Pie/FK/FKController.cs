@@ -13,7 +13,7 @@ namespace Pie.FK
     {
         public string Title { get; set; }
 
-        public FKModel Model { get; set; }
+        //public FKModel Model { get; set; }
 
         public char VerticalChar { get; set; }
 
@@ -23,41 +23,41 @@ namespace Pie.FK
         {
             get
             {
-                return (IEnumerable<FKActionMetadata>)Enumerable.OrderBy<FKActionMetadata, string>(Enumerable.Select(Enumerable.Select(Enumerable.Where<MethodInfo>((IEnumerable<MethodInfo>)this.GetType().GetMethods(), (Func<MethodInfo, bool>)(a =>
-                {
-                    if (a.IsPublic && Attribute.IsDefined((MemberInfo)a, typeof(FKActionAttribute)))
-                        return !Enumerable.Any<ParameterInfo>((IEnumerable<ParameterInfo>)a.GetParameters());
-                    else
-                        return false;
-                })), a => new
-                {
-                    a = a,
-                    attr = Attribute.GetCustomAttribute((MemberInfo)a, typeof(FKActionAttribute)) as FKActionAttribute
-                }), param0 => new FKActionMetadata()
-                {
-                    Method = param0.a,
-                    Name = param0.attr.Name,
-                    Description = param0.attr.Description + (!param0.attr.Finished ? " (unfinished)" : "")
-                }), (Func<FKActionMetadata, string>)(a => a.Name), (IComparer<string>)new AlphaNumberComparer(AlphaNumberSettings.Leading));
+                return 
+                    this.GetType().GetMethods().Where(a =>
+                    {
+                        if (a.IsPublic && Attribute.IsDefined((MemberInfo)a, typeof(FKActionAttribute)))
+                            return !a.GetParameters().Any();
+                        else
+                            return false;
+                    }).Select(a => new
+                    {
+                        Method = a,
+                        Attribute = Attribute.GetCustomAttribute((MemberInfo)a, typeof(FKActionAttribute)) as FKActionAttribute
+                    }).Select(a => new FKActionMetadata()
+                    {
+                        Method = a.Method,
+                        Name = a.Attribute.Name,
+                        Description = a.Attribute.Description + (!a.Attribute.Finished ? " (unfinished)" : "")
+                    }).OrderBy(a => a.Name, new AlphaNumberComparer(AlphaNumberSettings.Leading));
             }
         }
 
-        public FKController(FKModel model, string title = null, char verticalChar = '-', char horizontalChar = '|', string[] args = null)
+        public FKController(string title = null, char verticalChar = '-', char horizontalChar = '|', string[] args = null)
         {
-            this.Model = model;
             this.Title = title;
             this.VerticalChar = verticalChar;
             this.HorizontalChar = horizontalChar;
             try
             {
-                if (args == null || !Enumerable.Any<string>((IEnumerable<string>)args))
+                if (args == null || !args.Any())
                     return;
-                bool flag = Enumerable.Any<string>(Enumerable.Skip<string>((IEnumerable<string>)args, 1)) && StringExtensions.StartsWithIgnoreCase(args[1], "T");
+                bool flag = args.Skip(1).Any() && args[1].StartsWithIgnoreCase("T");
                 while (true)
                 {
                     do
                     {
-                        this.ExecuteAction(Enumerable.First<string>((IEnumerable<string>)args), true, true);
+                        this.ExecuteAction(args.First(), true, true);
                     }
                     while (flag);
                     this.Exit();
@@ -80,7 +80,7 @@ namespace Pie.FK
         private void WriteHeader(string header)
         {
             string[] strArray = header.SplitLines();
-            int num = Enumerable.Max(Enumerable.Select<string, int>((IEnumerable<string>)strArray, (Func<string, int>)(l => l.Length)));
+            int num = strArray.Select(x => x.Length).Max();
             string str1 = new string(this.VerticalChar, num + 4);
             Console.WriteLine(str1);
             foreach (string str2 in strArray)
@@ -97,13 +97,13 @@ namespace Pie.FK
 
         public void ExecuteAction(string actionName, bool pause = false, bool header = false)
         {
-            FKActionMetadata fkActionMetadata = Enumerable.FirstOrDefault<FKActionMetadata>(Enumerable.Select(Enumerable.OrderBy(Enumerable.Where(Enumerable.Select(this.Actions, a => new
-            {
-                a = a,
-                distance = StringExtensions.DistanceTo(a.Name, actionName, false)
-            }), param0 => param0.distance <= 3), param0 => param0.distance), param0 => param0.a));
+            FKActionMetadata fkActionMetadata = this.Actions.Select(a => new { A = a, Distance = a.Name.DistanceTo(actionName, false) })
+                .Where(x => x.Distance <= 3)
+                .OrderBy(x => x.Distance)
+                .Select(x => x.A).FirstOrDefault<FKActionMetadata>();
+
             if (fkActionMetadata == null || actionName.Trim() == "")
-                fkActionMetadata = Enumerable.FirstOrDefault<FKActionMetadata>(this.Actions, (Func<FKActionMetadata, bool>)(a => a.Name == "Exit"));
+                fkActionMetadata = this.Actions.FirstOrDefault(a => a.Name == "Exit");
             if (fkActionMetadata == null)
                 return;
             this.PreActionExecute();
@@ -119,7 +119,7 @@ namespace Pie.FK
         [FKAction("All", Description = "Run all the actions.")]
         public void All()
         {
-            foreach (FKActionMetadata fkActionMetadata in Enumerable.Where<FKActionMetadata>(this.Actions, (Func<FKActionMetadata, bool>)(a => !a.Name.BelongsTo<string>("All", "Exit"))))
+            foreach (FKActionMetadata fkActionMetadata in this.Actions.Where(x => !x.Name.BelongsTo<string>("All","Exit")))
                 this.ExecuteAction(fkActionMetadata.Name, true, true);
         }
 
@@ -150,7 +150,7 @@ namespace Pie.FK
 
         public void SimpleView(IEnumerable<object> objs, bool space = true)
         {
-            this.SimpleView(space, Enumerable.ToArray<object>(objs));
+            this.SimpleView(space, objs.ToArray());
         }
 
         public void SimpleView(bool space = true, params object[] objs)
