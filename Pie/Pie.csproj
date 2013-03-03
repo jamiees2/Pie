@@ -90,7 +90,6 @@
     <Compile Include="FK\FKController.cs" />
     <Compile Include="FK\FKModel.cs" />
     <Compile Include="FK\FKViewAttribute.cs" />
-    <Compile Include="Console\PieConsole.cs" />
     <Compile Include="DisposableAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Collections\BinaryHeap.cs" />
