@@ -12883,8 +12883,8 @@
         <member name="M:Pie.IO.Output.PieConsole.__(System.String)">
             <summary>
             Waits for the user to press a key
-            Alias for the method Wait()
             </summary>
+            <remarks>Alias for the method Wait()</remarks>
             <param name="msg">The message to show</param>
         </member>
     </members>
