@@ -477,5 +477,37 @@ namespace Pie.Strings
                 return c.Real.ToString();
             }
         }
+
+        /// <summary>
+        /// Returns the selected string without the specified character
+        /// </summary>
+        /// <param name="s">The selected string</param>
+        /// <param name="c">The unwanted character</param>
+        /// <returns>The string without any occurences of the specified character</returns>
+        public static string Without(this string s, char c)
+        {
+            return s.Without(c.ToString());
+        }
+
+        /// <summary>
+        /// Returns the selected string with all occurences of the specified string
+        /// </summary>
+        /// <param name="s">The selected string</param>
+        /// <param name="c">The unwanted string</param>
+        /// <returns>The selected string without any occurences of the specified string</returns>
+        public static string Without(this string s, string c)
+        {
+            return s.ReplaceAll(c, "");
+        }
+
+        /// <summary>
+        /// Splits the string by newlines, and returns the resulting array
+        /// </summary>
+        /// <param name="s">The selected string</param>
+        /// <returns>The string split by newlines</returns>
+        public static string[] SplitLines(this string s)
+        {
+            return s.Without("\r").Split('\n');
+        }
     }
 }

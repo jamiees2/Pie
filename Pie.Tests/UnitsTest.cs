@@ -66,6 +66,7 @@ namespace Pie.Tests
         {
             Assert.AreEqual(new Celsius(30).ToString(), "30 °C");
             Assert.AreEqual<double>((Celsius)new Fahrenheit(32), 0);
+            Assert.AreEqual<double>((Fahrenheit)new Celsius(0), 32);
         }
     }
 }
