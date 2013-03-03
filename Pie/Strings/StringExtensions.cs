@@ -486,6 +486,7 @@ namespace Pie.Strings
         /// <returns>The string without any occurences of the specified character</returns>
         public static string Without(this string s, char c)
         {
+            Contract.Requires(s != null);
             return s.Without(c.ToString());
         }
 
@@ -497,6 +498,8 @@ namespace Pie.Strings
         /// <returns>The selected string without any occurences of the specified string</returns>
         public static string Without(this string s, string c)
         {
+            Contract.Requires(s != null);
+            Contract.Requires(c != null);
             return s.ReplaceAll(c, "");
         }
 
@@ -507,6 +510,7 @@ namespace Pie.Strings
         /// <returns>The string split by newlines</returns>
         public static string[] SplitLines(this string s)
         {
+            Contract.Requires(s != null);
             return s.Without("\r").Split('\n');
         }
     }
