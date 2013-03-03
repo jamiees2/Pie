@@ -6,75 +6,59 @@ using System.Text;
 namespace Pie
 {
     /// <summary>
-    /// A console helper for method chaining
+    /// An upgrade to the usual System.Console
     /// </summary>
-    public class ConsoleHelper
+    public static class PieConsole
     {
-        private static ConsoleHelper Instance { get; set; }
-
-        private ConsoleHelper() { }
-
         /// <summary>
-        /// Returns an instance of the console helper.
-        /// </summary>
-        /// <returns>An instance of the console helper.</returns>
-        public static ConsoleHelper GetInstance()
-        {
-            if (Instance == null) Instance = new ConsoleHelper();
-            return Instance;
-        }
-
-        /// <summary>
-        /// Writes the specified object to the console.
+        /// Writes the current instance to the console.
         /// </summary>
         /// <param name="o">The specified object.</param>
-        /// <returns>The current instance (for chaining).</returns>
-        public ConsoleHelper Write<T>(T o)
+        /// <returns>A console helper.</returns>
+        public static ConsoleHelper Write(object o)
         {
-            Console.Write(o);
-            return this;
+            return ConsoleHelper.GetInstance().Write(o);
         }
 
         /// <summary>
-        /// Writes the specified object to the console, and then puts the cursor on a new line.
+        /// Writes the current instance to the console.
         /// </summary>
         /// <param name="o">The specified object.</param>
-        /// <returns>The current instance (for chaining).</returns>
-        public ConsoleHelper WriteLine<T>(T o)
+        /// <param name="format">The format string.</param>
+        /// <param name="objects">The objects.</param>
+        /// <returns>A console helper.</returns>
+        public static ConsoleHelper Write(string format, params object[] objects)
         {
-            Console.WriteLine(o);
-            return this;
+            return ConsoleHelper.GetInstance().Write(format, objects);
         }
 
         /// <summary>
-        /// Formats the specified string and objects with String.Format and the writes it to the console.
+        /// Writes the current instance to the console, and then puts the cursor on a new line.
         /// </summary>
-        /// <param name="format">The format string.</param>
-        /// <param name="args">The arguments.</param>
-        /// <returns>The current instance (for chaining).</returns>
-        public ConsoleHelper Write(string format, params object[] args)
+        /// <param name="o">The specified object.</param>
+        /// <returns>A console helper.</returns>
+        public static ConsoleHelper WriteLine(object o)
         {
-            Console.Write(format, args);
-            return this;
+            return ConsoleHelper.GetInstance().WriteLine(o);
         }
 
         /// <summary>
-        /// Formats the specified string and objects with String.Format, writes it to the console and the puts the cursor on a new line.
+        /// Writes the current instance to the console, and then puts the cursor on a new line.
         /// </summary>
+        /// <param name="o">The specified object.</param>
         /// <param name="format">The format string.</param>
-        /// <param name="args">The arguments.</param>
-        /// <returns>The current instance (for chaining).</returns>
-        public ConsoleHelper WriteLine(string format, params object[] args)
+        /// <param name="objects">The objects.</param>
+        /// <returns>A console helper.</returns>
+        public static ConsoleHelper WriteLine(string format, params object[] objects)
         {
-            Console.WriteLine(format, args);
-            return this;
+            return ConsoleHelper.GetInstance().WriteLine(format, objects);
         }
 
         /// <summary>
         /// Reads a string from the console.
         /// </summary>
         /// <returns>The string read from the console.</returns>
-        public string ReadLine()
+        public static string ReadLine()
         {
             return Console.ReadLine();
         }
@@ -84,7 +68,7 @@ namespace Pie
         /// </summary>
         /// <param name="output">The output variable</param>
         /// <returns>An instance of PieConsoleHelper</returns>
-        public ConsoleHelper ReadLine(out string output)
+        public static ConsoleHelper ReadLine(out string output)
         {
             output = Console.ReadLine();
             return ConsoleHelper.GetInstance();
@@ -96,9 +80,9 @@ namespace Pie
         /// <param name="msg">The message</param>
         /// <param name="suffix">The suffix to the message</param>
         /// <returns>The string read from the console</returns>
-        public string ReadLineQ(string msg, string suffix = ": ")
+        public static string ReadLineQ(string msg, string suffix=": ")
         {
-            this.Write(msg + suffix);
+            Write(msg + suffix);
             return Console.ReadLine();
         }
 
@@ -109,9 +93,9 @@ namespace Pie
         /// <param name="output">The output variable</param>
         /// <param name="suffix">The suffix to the message</param>
         /// <returns>An instance of PieConsoleHelper</returns>
-        public ConsoleHelper ReadLineQ(out string output, string msg, string suffix = ": ")
+        public static ConsoleHelper ReadLineQ(out string output, string msg, string suffix = ": ")
         {
-            this.Write(msg + suffix);
+            Write(msg + suffix);
             output = Console.ReadLine();
             return ConsoleHelper.GetInstance();
         }
@@ -123,9 +107,9 @@ namespace Pie
         /// <param name="msg">The message</param>
         /// <param name="suffix">The suffix to the message</param>
         /// <returns>The string read from the line converted to type T</returns>
-        public T ReadLineQ<T>(string msg, string suffix = ": ")
+        public static T ReadLineQ<T>(string msg, string suffix = ": ")
         {
-            this.Write(msg + suffix);
+            Write(msg + suffix);
             return Console.ReadLine().As<T>();
         }
 
@@ -137,9 +121,9 @@ namespace Pie
         /// <param name="output">The output variable</param>
         /// <param name="suffix">The suffix to the message</param>
         /// <returns>An instance of PieConsoleHelper</returns>
-        public ConsoleHelper ReadLineQ<T>(out T output, string msg, string suffix = ": ")
+        public static ConsoleHelper ReadLineQ<T>(out T output, string msg, string suffix = ": ")
         {
-            this.Write(msg + suffix);
+            Write(msg + suffix);
             output = Console.ReadLine().As<T>();
             return ConsoleHelper.GetInstance();
         }
@@ -148,7 +132,7 @@ namespace Pie
         /// Reads a string from the console and then converts it to the specified type.
         /// </summary>
         /// <returns>The converted string read from the console.</returns>
-        public T ReadLine<T>()
+        public static T ReadLine<T>()
         {
             return Console.ReadLine().As<T>();
         }
@@ -158,16 +142,11 @@ namespace Pie
         /// </summary>
         /// <param name="output">The output variable</param>
         /// <returns>An instance of PieConsoleHelper</returns>
-        public ConsoleHelper ReadLine<T>(out T output)
+        public static ConsoleHelper ReadLine<T>(out T output)
         {
             output = Console.ReadLine().As<T>();
             return ConsoleHelper.GetInstance();
         }
 
-        /// <see cref="Object.ToString()"/>
-        public override string ToString()
-        {
-            return String.Empty;
-        }
     }
 }
