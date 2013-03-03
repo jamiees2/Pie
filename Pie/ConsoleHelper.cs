@@ -87,7 +87,7 @@ namespace Pie
         public ConsoleHelper ReadLine(out string output)
         {
             output = Console.ReadLine();
-            return ConsoleHelper.GetInstance();
+            return this;
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Pie
         {
             this.Write(msg + suffix);
             output = Console.ReadLine();
-            return ConsoleHelper.GetInstance();
+            return this;
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace Pie
         {
             this.Write(msg + suffix);
             output = Console.ReadLine().As<T>();
-            return ConsoleHelper.GetInstance();
+            return this;
         }
 
         /// <summary>
@@ -161,7 +161,41 @@ namespace Pie
         public ConsoleHelper ReadLine<T>(out T output)
         {
             output = Console.ReadLine().As<T>();
-            return ConsoleHelper.GetInstance();
+            return this;
+        }
+
+        /// <summary>
+        /// Waits for the user to press a key
+        /// </summary>
+        /// <param name="msg">The message to show to the user.</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public ConsoleHelper Wait(string msg = "Press any key to continue...")
+        {
+            Write(msg);
+            Console.ReadKey();
+            return this;
+        }
+
+        /// <summary>
+        /// Waits for the user to press enter
+        /// </summary>
+        /// <param name="msg">The message to show to the user.</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public ConsoleHelper WaitLine(string msg = "Press any key to continue...")
+        {
+            Write(msg);
+            ReadLine();
+            return this;
+        }
+
+        /// <summary>
+        /// Clears the console
+        /// </summary>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public ConsoleHelper Clear()
+        {
+            Console.Clear();
+            return this;
         }
 
         /// <see cref="Object.ToString()"/>

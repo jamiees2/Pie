@@ -11,6 +11,15 @@ namespace Pie
     public static class PieConsole
     {
         /// <summary>
+        /// Writes nothing to the console
+        /// </summary>
+        /// <returns>An instance of the ConsoleHelper</returns>
+        public static ConsoleHelper Write()
+        {
+            return ConsoleHelper.GetInstance().Write();
+        }
+
+        /// <summary>
         /// Writes the current instance to the console.
         /// </summary>
         /// <param name="o">The specified object.</param>
@@ -33,9 +42,17 @@ namespace Pie
         }
 
         /// <summary>
+        /// Writes an empty line to the console
+        /// </summary>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper WriteLine()
+        {
+            return WriteLine("\n");
+        }
+
+        /// <summary>
         /// Writes the current instance to the console, and then puts the cursor on a new line.
         /// </summary>
-        /// <param name="o">The specified object.</param>
         /// <returns>A console helper.</returns>
         public static ConsoleHelper WriteLine(object o)
         {
@@ -45,7 +62,6 @@ namespace Pie
         /// <summary>
         /// Writes the current instance to the console, and then puts the cursor on a new line.
         /// </summary>
-        /// <param name="o">The specified object.</param>
         /// <param name="format">The format string.</param>
         /// <param name="objects">The objects.</param>
         /// <returns>A console helper.</returns>
@@ -67,7 +83,7 @@ namespace Pie
         /// Reads a string from the console.
         /// </summary>
         /// <param name="output">The output variable</param>
-        /// <returns>An instance of PieConsoleHelper</returns>
+        /// <returns>An instance of ConsoleHelper</returns>
         public static ConsoleHelper ReadLine(out string output)
         {
             output = Console.ReadLine();
@@ -92,7 +108,7 @@ namespace Pie
         /// <param name="msg">The message</param>
         /// <param name="output">The output variable</param>
         /// <param name="suffix">The suffix to the message</param>
-        /// <returns>An instance of PieConsoleHelper</returns>
+        /// <returns>An instance of ConsoleHelper</returns>
         public static ConsoleHelper ReadLineQ(out string output, string msg, string suffix = ": ")
         {
             Write(msg + suffix);
@@ -120,7 +136,7 @@ namespace Pie
         /// <param name="msg">The message</param>
         /// <param name="output">The output variable</param>
         /// <param name="suffix">The suffix to the message</param>
-        /// <returns>An instance of PieConsoleHelper</returns>
+        /// <returns>An instance of ConsoleHelper</returns>
         public static ConsoleHelper ReadLineQ<T>(out T output, string msg, string suffix = ": ")
         {
             Write(msg + suffix);
@@ -141,10 +157,44 @@ namespace Pie
         /// Reads a string from the console and then converts it to the specified type.
         /// </summary>
         /// <param name="output">The output variable</param>
-        /// <returns>An instance of PieConsoleHelper</returns>
+        /// <returns>An instance of ConsoleHelper</returns>
         public static ConsoleHelper ReadLine<T>(out T output)
         {
             output = Console.ReadLine().As<T>();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Waits for the user to press a key
+        /// </summary>
+        /// <param name="msg">The message to show to the user.</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper Wait(string msg = "Press any key to continue...")
+        {
+            Write(msg);
+            Console.ReadKey();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Waits for the user to press enter
+        /// </summary>
+        /// <param name="msg">The message to show to the user.</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper WaitLine(string msg = "Press any key to continue...")
+        {
+            Write(msg);
+            ReadLine();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Clears the console
+        /// </summary>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper Clear()
+        {
+            Console.Clear();
             return ConsoleHelper.GetInstance();
         }
 

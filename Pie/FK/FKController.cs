@@ -9,16 +9,31 @@ using System.Reflection;
 
 namespace Pie.FK
 {
+    /// <summary>
+    /// A controller for projects
+    /// </summary>
     public abstract class FKController
     {
+        /// <summary>
+        /// The title of the project
+        /// </summary>
         public string Title { get; set; }
 
         //public FKModel Model { get; set; }
 
+        /// <summary>
+        /// The character to use for vertical lines
+        /// </summary>
         public char VerticalChar { get; set; }
 
+        /// <summary>
+        /// The character to use for horizontal lines
+        /// </summary>
         public char HorizontalChar { get; set; }
 
+        /// <summary>
+        /// The actions for the controller
+        /// </summary>
         private IEnumerable<FKActionMetadata> Actions
         {
             get
@@ -43,7 +58,14 @@ namespace Pie.FK
             }
         }
 
-        public FKController(string title = null, char verticalChar = '-', char horizontalChar = '|', string[] args = null)
+        /// <summary>
+        /// The constructor
+        /// </summary>
+        /// <param name="title">The title of the project</param>
+        /// <param name="args">The args passed to the program</param>
+        /// <param name="verticalChar">The character to use for vertical spaces</param>
+        /// <param name="horizontalChar">The character to use for horizontal spaces</param>
+        public FKController(string title = null, string[] args = null, char verticalChar = '-', char horizontalChar = '|')
         {
             this.Title = title;
             this.VerticalChar = verticalChar;
@@ -68,15 +90,22 @@ namespace Pie.FK
             }
         }
 
+        /// <summary>
+        /// Prints all the actions to the console
+        /// </summary>
         public void ListActions()
         {
             if (this.Title != null)
                 this.WriteHeader(this.Title);
             foreach (object obj in this.Actions)
-                Console.WriteLine(obj.ToString());
-            Console.WriteLine();
+                PieConsole.WriteLine(obj.ToString());
+            PieConsole.WriteLine();
         }
 
+        /// <summary>
+        /// Writes the header to the console
+        /// </summary>
+        /// <param name="header">The header</param>
         private void WriteHeader(string header)
         {
             string[] strArray = header.SplitLines();
@@ -85,16 +114,21 @@ namespace Pie.FK
             Console.WriteLine(str1);
             foreach (string str2 in strArray)
             {
-                Console.Write(this.HorizontalChar);
-                Console.Write(' ');
-                Console.Write(str2);
-                Console.Write(new string(' ', num - str2.Length + 1));
-                Console.WriteLine(this.HorizontalChar);
+                PieConsole.Write(this.HorizontalChar)
+                    .Write(' ')
+                    .Write(str2)
+                    .Write(new string(' ', num - str2.Length + 1))
+                    .WriteLine(this.HorizontalChar);
             }
-            Console.WriteLine(str1);
-            Console.WriteLine();
+            PieConsole.WriteLine(str1).WriteLine();
         }
 
+        /// <summary>
+        /// Executes the action by name
+        /// </summary>
+        /// <param name="actionName">The name of the action</param>
+        /// <param name="pause">Wether to wait after executing the action</param>
+        /// <param name="header">Wether to show the header</param>
         public void ExecuteAction(string actionName, bool pause = false, bool header = false)
         {
             FKActionMetadata fkActionMetadata = this.Actions.Select(a => new { A = a, Distance = a.Name.DistanceTo(actionName, false) })
@@ -113,9 +147,12 @@ namespace Pie.FK
             this.PostActionExecute();
             if (!pause)
                 return;
-            Console.ReadLine();
+            PieConsole.ReadLine();
         }
 
+        /// <summary>
+        /// An action that simply runs all the actions
+        /// </summary>
         [FKAction("All", Description = "Run all the actions.")]
         public void All()
         {
@@ -123,36 +160,58 @@ namespace Pie.FK
                 this.ExecuteAction(fkActionMetadata.Name, true, true);
         }
 
+        /// <summary>
+        /// Runs the Controller, shows the choice box and executes actions
+        /// </summary>
         public void Run()
         {
             while (true)
             {
-                Console.Clear();
+                PieConsole.Clear();
                 this.ListActions();
-                Console.Write("Run: ");
-                this.ExecuteAction(Console.ReadLine(), true, true);
+                this.ExecuteAction(PieConsole.ReadLineQ("Run"), true, true);
             }
         }
 
+        /// <summary>
+        /// An action that simply exits the program
+        /// </summary>
         [FKAction("Exit", Description = "Exit the program.")]
         public void Exit()
         {
             Environment.Exit(0);
         }
 
+        /// <summary>
+        /// Runs before each action
+        /// </summary>
         public virtual void PreActionExecute()
         {
         }
 
+        /// <summary>
+        /// Runs after each action
+        /// </summary>
         public virtual void PostActionExecute()
         {
         }
 
+        #region Views
+        /// <summary>
+        /// A simple view for printing out the specified objects
+        /// </summary>
+        /// <param name="objs">The objects</param>
+        /// <param name="space">Wether to prepend with a newline</param>
         public void SimpleView(IEnumerable<object> objs, bool space = true)
         {
             this.SimpleView(space, objs.ToArray());
         }
 
+        /// <summary>
+        /// A simple view that prints out all it's parameters
+        /// </summary>
+        /// <param name="space">Wether to prepend with a newline</param>
+        /// <param name="objs">The objects</param>
         public void SimpleView(bool space = true, params object[] objs)
         {
             if (space)
@@ -161,6 +220,12 @@ namespace Pie.FK
                 Console.WriteLine(obj);
         }
 
+        /// <summary>
+        /// A simple view that prints out a dictionary
+        /// </summary>
+        /// <param name="objs">The dictionary to show</param>
+        /// <param name="between">What to print between the key and the value</param>
+        /// <param name="space">Wether to prepend the output with a newline</param>
         public void SimpleView(Dictionary<string, object> objs, string between = ": ", bool space = true)
         {
             if (space)
@@ -173,6 +238,11 @@ namespace Pie.FK
             }
         }
 
+        /// <summary>
+        /// A simple view that prints out a string
+        /// </summary>
+        /// <param name="s">The string to print out</param>
+        /// <param name="space">Wether to prepend the output with a newline</param>
         public void SimpleView(string s, bool space = true)
         {
             if (space)
@@ -180,6 +250,13 @@ namespace Pie.FK
             Console.WriteLine(s);
         }
 
+        /// <summary>
+        /// A simple view that prints out a string based on the value of a boolean
+        /// </summary>
+        /// <param name="condition">The conditional</param>
+        /// <param name="trueString">What to print out if the condition is true</param>
+        /// <param name="falseString">What to print out if the condition is false</param>
+        /// <param name="space">Wehter to prepend the output with a newline</param>
         public void BoolView(bool condition, string trueString, string falseString, bool space = true)
         {
             if (space)
@@ -187,18 +264,26 @@ namespace Pie.FK
             Console.WriteLine(condition ? trueString : falseString);
         }
 
+        /// <summary>
+        /// A simple view that prints out a string if the boolean is false
+        /// </summary>
+        /// <param name="condition">The conditional</param>
+        /// <param name="start">The output to prepend</param>
+        /// <param name="not"></param>
+        /// <param name="end"></param>
+        /// <param name="space"></param>
         public void BoolView(bool condition, string start, string not, string end, bool space = true)
         {
             if (space)
-                Console.WriteLine();
-            Console.Write(start);
-            Console.Write(" ");
+                PieConsole.WriteLine();
+            PieConsole.Write(start).Write(" ");
             if (!condition)
             {
-                Console.Write(not);
-                Console.Write(" ");
+                PieConsole.Write(not).Write(" ");
             }
-            Console.WriteLine(end);
+            PieConsole.WriteLine(end);
         }
+
+        #endregion
     }
 }
