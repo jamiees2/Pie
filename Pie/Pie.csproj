@@ -81,6 +81,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharShapes\Square.cs" />
     <Compile Include="CharShapes\Triangle.cs" />
     <Compile Include="Collections\TernarySearchTree.cs" />
     <Compile Include="Collections\TernaryStringSearchTree.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="FK\FKController.cs" />
     <Compile Include="FK\FKModel.cs" />
     <Compile Include="FK\FKViewAttribute.cs" />
+    <Compile Include="Console\PieConsole.cs" />
     <Compile Include="DisposableAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Collections\BinaryHeap.cs" />
@@ -209,16 +211,13 @@
     <Compile Include="Units\Megabyte.cs" />
     <Compile Include="Units\Meter.cs" />
     <Compile Include="Units\Metric.cs" />
-    <Compile Include="Units\Milligram.cs" />
-    <Compile Include="Units\Millimeter.cs" />
-    <Compile Include="Units\Temperature.cs" />
-    <Compile Include="Units\Terabit.cs" />
-    <Compile Include="Units\Terabyte.cs" />
-    <Compile Include="Units\Weight.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="FunctionalExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README">
+      <Link>README</Link>
+    </None>
     <None Include="..\TODO">
       <Link>TODO</Link>
     </None>
