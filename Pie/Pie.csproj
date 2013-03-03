@@ -84,6 +84,11 @@
     <Compile Include="CharShapes\Triangle.cs" />
     <Compile Include="Collections\TernarySearchTree.cs" />
     <Compile Include="Collections\TernaryStringSearchTree.cs" />
+    <Compile Include="FK\FKActionAttribute.cs" />
+    <Compile Include="FK\FKActionMetadata.cs" />
+    <Compile Include="FK\FKController.cs" />
+    <Compile Include="FK\FKModel.cs" />
+    <Compile Include="FK\FKViewAttribute.cs" />
     <Compile Include="IO\Output\PieConsole.cs" />
     <Compile Include="DisposableAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
@@ -185,7 +190,6 @@
     <Compile Include="Strings\StringExtensions.cs" />
     <Compile Include="Time\TimeUtils.cs" />
     <Compile Include="IO\Bencoding.cs" />
-    <Compile Include="Units\BaseConverter.cs" />
     <Compile Include="Units\Bit.cs" />
     <Compile Include="Units\BitSize.cs" />
     <Compile Include="Units\Byte.cs" />

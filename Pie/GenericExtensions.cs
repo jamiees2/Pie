@@ -254,6 +254,30 @@ namespace Pie
             return func(variable);
         }
 
+        /// <summary>
+        /// Checks if the current item belongs to a collection
+        /// </summary>
+        /// <typeparam name="T">The type of the current item</typeparam>
+        /// <param name="item">The current item</param>
+        /// <param name="collection">The collection to check</param>
+        /// <returns>Wether the collection contains the current item</returns>
+        public static bool BelongsTo<T>(this T item, IEnumerable<T> collection)
+        {
+            return collection.Contains(item);
+        }
+
+        /// <summary>
+        /// Check if the current item belongs to the collection of parameters passed
+        /// </summary>
+        /// <typeparam name="T">The type of the current item</typeparam>
+        /// <param name="item">The current item</param>
+        /// <param name="collection">The collection of parameters passed</param>
+        /// <returns>Wether the collection contains the current item</returns>
+        public static bool BelongsTo<T>(this T item, params T[] collection)
+        {
+            return collection.Contains(item);
+        }
+
         #region ExecutionTime
 
         /// <summary>

@@ -119,7 +119,7 @@ namespace Pie.FK
         [FKAction("All", Description = "Run all the actions.")]
         public void All()
         {
-            foreach (FKActionMetadata fkActionMetadata in Enumerable.Where<FKActionMetadata>(this.Actions, (Func<FKActionMetadata, bool>)(a => !Extensions.IsIn<string>(a.Name, "All", "Exit"))))
+            foreach (FKActionMetadata fkActionMetadata in Enumerable.Where<FKActionMetadata>(this.Actions, (Func<FKActionMetadata, bool>)(a => !a.Name.BelongsTo<string>("All", "Exit"))))
                 this.ExecuteAction(fkActionMetadata.Name, true, true);
         }
 

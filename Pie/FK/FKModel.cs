@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using Pie.IO.Output;
 
 namespace Pie.FK
 {
@@ -11,7 +12,7 @@ namespace Pie.FK
         public T Read<T>(string q = null, string separator = ": ")
         {
             this.WriteQuestion(q, separator);
-            return Extensions.As<T>((object)Console.ReadLine(), default(T));
+            return PieConsole.Read<T>();
         }
 
         public string Read(string q = null, string separator = ": ")

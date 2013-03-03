@@ -3141,6 +3141,49 @@
             A king.
             </summary>
         </member>
+        <member name="M:Pie.IO.Output.PieConsole.Read``1(System.String,System.String)">
+            <summary>
+            Reads in the entered input line, and converts it to type T
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="i">The string to print out in front of the input</param>
+            <param name="endl">The end of the line</param>
+            <returns>What was entered, but converted to the specified type</returns>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.Read``1">
+            <summary>
+            Reads in the entered input line, and converts it to type T
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <returns>What was entered, but converted to the specified type</returns>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.WriteF(System.String,System.Object[])">
+            <summary>
+            Writes out the format string with the values
+            </summary>
+            <param name="i">The format string</param>
+            <param name="p">The values</param>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.WriteFLine(System.String,System.Object[])">
+            <summary>
+            Writes out the format string on a certain line
+            </summary>
+            <param name="i">The format string</param>
+            <param name="p">The values</param>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.Wait(System.String)">
+            <summary>
+            Waits for the user to press a key
+            </summary>
+            <param name="msg">The message to show</param>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.__(System.String)">
+            <summary>
+            Waits for the user to press a key
+            </summary>
+            <remarks>Alias for the method Wait()</remarks>
+            <param name="msg">The message to show</param>
+        </member>
         <member name="T:Pie.FunctionalExtensions">
             <summary>
             Functional methods.
@@ -8713,6 +8756,29 @@
             <param name="c">The Complex number.</param>
             <returns>A string representation of the Complex number.</returns>
         </member>
+        <member name="M:Pie.Strings.StringExtensions.Without(System.String,System.Char)">
+            <summary>
+            Returns the selected string without the specified character
+            </summary>
+            <param name="s">The selected string</param>
+            <param name="c">The unwanted character</param>
+            <returns>The string without any occurences of the specified character</returns>
+        </member>
+        <member name="M:Pie.Strings.StringExtensions.Without(System.String,System.String)">
+            <summary>
+            Returns the selected string with all occurences of the specified string
+            </summary>
+            <param name="s">The selected string</param>
+            <param name="c">The unwanted string</param>
+            <returns>The selected string without any occurences of the specified string</returns>
+        </member>
+        <member name="M:Pie.Strings.StringExtensions.SplitLines(System.String)">
+            <summary>
+            Splits the string by newlines, and returns the resulting array
+            </summary>
+            <param name="s">The selected string</param>
+            <returns>The string split by newlines</returns>
+        </member>
         <member name="T:Pie.GenericExtensions">
             <summary>
             A static class containing generic extension methods.
@@ -8866,6 +8932,24 @@
             <param name="variable">The current instance.</param>
             <param name="func">The function to execute.</param>
             <returns>The function result.</returns>
+        </member>
+        <member name="M:Pie.GenericExtensions.BelongsTo``1(``0,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Checks if the current item belongs to a collection
+            </summary>
+            <typeparam name="T">The type of the current item</typeparam>
+            <param name="item">The current item</param>
+            <param name="collection">The collection to check</param>
+            <returns>Wether the collection contains the current item</returns>
+        </member>
+        <member name="M:Pie.GenericExtensions.BelongsTo``1(``0,``0[])">
+            <summary>
+            Check if the current item belongs to the collection of parameters passed
+            </summary>
+            <typeparam name="T">The type of the current item</typeparam>
+            <param name="item">The current item</param>
+            <param name="collection">The collection of parameters passed</param>
+            <returns>Wether the collection contains the current item</returns>
         </member>
         <member name="M:Pie.GenericExtensions.ExecutionTime(System.Action,System.Boolean)">
             <summary>
@@ -12843,49 +12927,6 @@
             Pi divided by two.
             </summary>
             <remarks>Pi / 2</remarks>
-        </member>
-        <member name="M:Pie.IO.Output.PieConsole.Read``1(System.String,System.String)">
-            <summary>
-            Reads in the entered input line, and converts it to type T
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="i">The string to print out in front of the input</param>
-            <param name="endl">The end of the line</param>
-            <returns>What was entered, but converted to the specified type</returns>
-        </member>
-        <member name="M:Pie.IO.Output.PieConsole.Read``1">
-            <summary>
-            Reads in the entered input line, and converts it to type T
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <returns>What was entered, but converted to the specified type</returns>
-        </member>
-        <member name="M:Pie.IO.Output.PieConsole.WriteF(System.String,System.Object[])">
-            <summary>
-            Writes out the format string with the values
-            </summary>
-            <param name="i">The format string</param>
-            <param name="p">The values</param>
-        </member>
-        <member name="M:Pie.IO.Output.PieConsole.WriteFLine(System.String,System.Object[])">
-            <summary>
-            Writes out the format string on a certain line
-            </summary>
-            <param name="i">The format string</param>
-            <param name="p">The values</param>
-        </member>
-        <member name="M:Pie.IO.Output.PieConsole.Wait(System.String)">
-            <summary>
-            Waits for the user to press a key
-            </summary>
-            <param name="msg">The message to show</param>
-        </member>
-        <member name="M:Pie.IO.Output.PieConsole.__(System.String)">
-            <summary>
-            Waits for the user to press a key
-            </summary>
-            <remarks>Alias for the method Wait()</remarks>
-            <param name="msg">The message to show</param>
         </member>
     </members>
 </doc>
