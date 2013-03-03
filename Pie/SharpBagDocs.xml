@@ -1601,35 +1601,6 @@
             The disposer which executes the dispose action.
             </summary>
         </member>
-        <member name="M:Pie.Output.PieConsole.Read``1(System.String)">
-            <summary>
-            Reads in the entered input line, and converts it to type T
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="i">The string to print out in front of the input</param>
-            <returns>What was entered, but converted to the specified type</returns>
-        </member>
-        <member name="M:Pie.Output.PieConsole.Read``1">
-            <summary>
-            Reads in the entered input line, and converts it to type T
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <returns>What was entered, but converted to the specified type</returns>
-        </member>
-        <member name="M:Pie.Output.PieConsole.WriteF(System.String,System.Object[])">
-            <summary>
-            Writes out the format string with the values
-            </summary>
-            <param name="i">The format string</param>
-            <param name="p">The values</param>
-        </member>
-        <member name="M:Pie.Output.PieConsole.WriteFLine(System.String,System.Object[])">
-            <summary>
-            Writes out the format string on a certain line
-            </summary>
-            <param name="i">The format string</param>
-            <param name="p">The values</param>
-        </member>
         <member name="T:Pie.Networking.NetworkExtensions">
             <summary>
             Extensions methods for the Network class.
@@ -12872,6 +12843,49 @@
             Pi divided by two.
             </summary>
             <remarks>Pi / 2</remarks>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.Read``1(System.String,System.String)">
+            <summary>
+            Reads in the entered input line, and converts it to type T
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="i">The string to print out in front of the input</param>
+            <param name="endl">The end of the line</param>
+            <returns>What was entered, but converted to the specified type</returns>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.Read``1">
+            <summary>
+            Reads in the entered input line, and converts it to type T
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <returns>What was entered, but converted to the specified type</returns>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.WriteF(System.String,System.Object[])">
+            <summary>
+            Writes out the format string with the values
+            </summary>
+            <param name="i">The format string</param>
+            <param name="p">The values</param>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.WriteFLine(System.String,System.Object[])">
+            <summary>
+            Writes out the format string on a certain line
+            </summary>
+            <param name="i">The format string</param>
+            <param name="p">The values</param>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.Wait(System.String)">
+            <summary>
+            Waits for the user to press a key
+            </summary>
+            <param name="msg">The message to show</param>
+        </member>
+        <member name="M:Pie.IO.Output.PieConsole.__(System.String)">
+            <summary>
+            Waits for the user to press a key
+            Alias for the method Wait()
+            </summary>
+            <param name="msg">The message to show</param>
         </member>
     </members>
 </doc>

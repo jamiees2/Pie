@@ -83,7 +83,7 @@
   <ItemGroup>
     <Compile Include="Collections\TernarySearchTree.cs" />
     <Compile Include="Collections\TernaryStringSearchTree.cs" />
-    <Compile Include="Console\PieConsole.cs" />
+    <Compile Include="IO\Output\PieConsole.cs" />
     <Compile Include="DisposableAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Collections\BinaryHeap.cs" />
