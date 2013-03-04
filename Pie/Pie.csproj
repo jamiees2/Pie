@@ -200,9 +200,11 @@
     <Compile Include="Units\Celsius.cs" />
     <Compile Include="Units\Centimeter.cs" />
     <Compile Include="Units\Fahrenheit.cs" />
+    <Compile Include="Units\Foot.cs" />
     <Compile Include="Units\Gigabit.cs" />
     <Compile Include="Units\Gigabyte.cs" />
     <Compile Include="Units\Gram.cs" />
+    <Compile Include="Units\Inch.cs" />
     <Compile Include="Units\Kelvin.cs" />
     <Compile Include="Units\Kilobit.cs" />
     <Compile Include="Units\Kilobyte.cs" />
@@ -213,6 +215,13 @@
     <Compile Include="Units\Megabyte.cs" />
     <Compile Include="Units\Meter.cs" />
     <Compile Include="Units\Metric.cs" />
+    <Compile Include="Units\Mile.cs" />
+    <Compile Include="Units\Ounce.cs" />
+    <Compile Include="Units\Pound.cs" />
+    <Compile Include="Units\Stone.cs" />
+    <Compile Include="Units\Temperature.cs" />
+    <Compile Include="Units\Weight.cs" />
+    <Compile Include="Units\Yard.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="FunctionalExtensions.cs" />
   </ItemGroup>

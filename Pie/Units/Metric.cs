@@ -50,6 +50,8 @@ namespace Pie.Units
             {
                 case "cm"://Centi
                     return i / 2.54;
+                default:
+                    return 0;
             }
         }
         
