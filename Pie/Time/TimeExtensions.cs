@@ -140,6 +140,16 @@ namespace Pie.Time
             return datetime.ToString("dddd").ToTitleCase();
         }
 
+        /// <summary>
+        /// Converts the datetime object into a string representing the current month in the current culture
+        /// </summary>
+        /// <param name="datetime">The current datetime object</param>
+        /// <returns>A string with the month</returns>
+        public static string ToStringMonth(this DateTime datetime)
+        {
+            return datetime.ToString("mmmm").ToTitleCase();
+        }
+
         #region Constellations
         /// <summary>
         /// Returns the constellation of the current DateTime object
