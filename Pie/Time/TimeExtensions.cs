@@ -114,5 +114,81 @@ namespace Pie.Time
         {
             return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(datetime, CultureInfo.CurrentCulture.DateTimeFormat.CalendarWeekRule, CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek);
         }
+
+        /// <summary>
+        /// Returns the constellation of the current DateTime object
+        /// </summary>
+        /// <param name="date">The current date</param>
+        /// <returns>The name signifying the current constellation</returns>
+        public static string Constellation(this DateTime date)
+        {
+            Contract.Requires(date != null);
+            return date.Constellation(new string[] { "Steingeit", "Vatnsberi", "Fiskur", "Hrútur", "Naut", "Tvíburi", "Krabbi", "Ljón", "Meyja", "Vog", "Sporðdreki", "Bogmaður" });
+        }
+
+        /// <summary>
+        /// Returns the constellation of the current DateTime object
+        /// </summary>
+        /// <param name="date">The current date</param>
+        /// <param name="names">A string array containing all the names of the constellations in the current language</param>
+        /// <returns>The name signifying the current constellation</returns>
+        public static string Constellation(this DateTime date, string[] names)
+        {
+            Contract.Requires(date != null);
+            Contract.Requires(names.Length == 12);
+            switch (date.Month)
+            {
+                case 1: if (date.Day <= 20)
+                    { return names[0]; }
+                    else
+                    { return names[1]; }
+                case 2: if (date.Day <= 19)
+                    { return names[1]; }
+                    else
+                    { return names[2]; }
+                case 3: if (date.Day <= 20)
+                    { return names[2]; }
+                    else
+                    { return names[3]; }
+                case 4: if (date.Day <= 20)
+                    { return names[3]; }
+                    else
+                    { return names[4]; }
+                case 5: if (date.Day <= 21)
+                    { return names[4]; }
+                    else
+                    { return names[5]; }
+                case 6: if (date.Day <= 22)
+                    { return names[5]; }
+                    else
+                    { return names[6]; }
+                case 7: if (date.Day <= 22)
+                    { return names[6]; }
+                    else
+                    { return names[7]; }
+                case 8: if (date.Day <= 23)
+                    { return names[7]; }
+                    else
+                    { return names[8]; }
+                case 9: if (date.Day <= 23)
+                    { return names[8]; }
+                    else
+                    { return names[9]; }
+                case 10: if (date.Day <= 23)
+                    { return names[9]; }
+                    else
+                    { return names[10]; }
+                case 11: if (date.Day <= 22)
+                    { return names[10]; }
+                    else
+                    { return names[11]; }
+                case 12: if (date.Day <= 21)
+                    { return names[11]; }
+                    else
+                    { return names[0]; }
+                default:
+                    return "";
+            }
+        }
     }
 }
