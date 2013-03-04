@@ -7,7 +7,7 @@ namespace Pie.Units
 {
     public class Metric
     {
-        public double MM(int mm, string measurement)
+        public double MM(int mm, string measurement)//Millimeter
         {
             switch (measurement)
             {
@@ -24,13 +24,15 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double CM(int cm, string measurement)
+        public double CM(int cm, string measurement)//Centimeter
         {
             switch (measurement)
             {
                 case "mm": //Milli
                     return cm / 10;
                 //Centi
+                case "i"://Tommur/Inches
+                    return cm * 2.54;
                 case "d": //Deci
                     return cm * 10;
                 case "m": //Meter
@@ -41,7 +43,17 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double D(int d, string measurement)
+        
+        public double I(int i, string measurement)//Tommur/Inches
+        {
+            switch(measurement)
+            {
+                case "cm"://Centi
+                    return i / 2.54;
+            }
+        }
+        
+        public double D(int d, string measurement)//Decimeter
         {
             switch (measurement)
             {
@@ -58,7 +70,7 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double M(int m, string measurement)
+        public double M(int m, string measurement)//Meter
         {
             switch (measurement)
             {
@@ -75,7 +87,7 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double K(int k, string measurement)
+        public double K(int k, string measurement)//Kilometer
         {
             switch (measurement)
             {
@@ -88,13 +100,13 @@ namespace Pie.Units
                 case "m": //Meter
                     return k / 10;
                 //Kilo
-                case "e"://Ekrar
+                case "e"://Ekrar/Acres
                     return k * 4046;
                 default:
                     return 0;
             }
         }
-        public double E(int e, string measurement)
+        public double E(int e, string measurement)//Ekrar/Acres
         {
             switch (measurement)
             {
@@ -107,7 +119,7 @@ namespace Pie.Units
                 case "m": //Meter
                     return e / 10;*/
                 case "k": //Kilo
-                    return e / 4046;
+                    return e / 4046;//Ekrar/Acres
                 default:
                     return 0;
             }
