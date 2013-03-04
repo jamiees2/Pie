@@ -1377,5 +1377,47 @@ namespace Pie.Math
         #endregion Kristian Edlund - http://www.mathblog.dk/2011/project-euler-58-primes-diagonals-spiral/
 
         #endregion ModPow
+
+        #region RomanNumerals
+        
+
+        public static int FromRoman(this string number)
+        {
+            if (number.IsNullOrEmpty()) return 0;
+            if (number.StartsWith("M")) return 1000 + FromRoman(number.Substring(1));
+            if (number.StartsWith("CM")) return 900 + FromRoman(number.Substring(2));
+            if (number.StartsWith("D")) return 500 + FromRoman(number.Substring(1));
+            if (number.StartsWith("CD")) return 400 + FromRoman(number.Substring(2));
+            if (number.StartsWith("C")) return 100 + FromRoman(number.Substring(1));
+            if (number.StartsWith("XC")) return 90 + FromRoman(number.Substring(2));
+            if (number.StartsWith("L")) return 50 + FromRoman(number.Substring(1));
+            if (number.StartsWith("XL")) return 40 + FromRoman(number.Substring(2));
+            if (number.StartsWith("X")) return 10 + FromRoman(number.Substring(1));
+            if (number.StartsWith("IX")) return 9 + FromRoman(number.Substring(2));
+            if (number.StartsWith("V")) return 5 + FromRoman(number.Substring(1));
+            if (number.StartsWith("IV")) return 4 + FromRoman(number.Substring(2));
+            if (number.StartsWith("I")) return 1 + FromRoman(number.Substring(1));
+            return 0;
+        }
+
+        public static string ToRoman(this int number)
+        {
+            if (number < 1) return string.Empty;
+            if (number >= 1000) return "M" + ToRoman(number - 1000);
+            if (number >= 900) return "CM" + ToRoman(number - 900);
+            if (number >= 500) return "D" + ToRoman(number - 500);
+            if (number >= 400) return "CD" + ToRoman(number - 400);
+            if (number >= 100) return "C" + ToRoman(number - 100);
+            if (number >= 90) return "XC" + ToRoman(number - 90);
+            if (number >= 50) return "L" + ToRoman(number - 50);
+            if (number >= 40) return "XL" + ToRoman(number - 40);
+            if (number >= 10) return "X" + ToRoman(number - 10);
+            if (number >= 9) return "IX" + ToRoman(number - 9);
+            if (number >= 5) return "V" + ToRoman(number - 5);
+            if (number >= 4) return "IV" + ToRoman(number - 4);
+            if (number >= 1) return "I" + ToRoman(number - 1);
+            throw new ArgumentOutOfRangeException("An error occured");
+        }
+        #endregion
     }
 }
