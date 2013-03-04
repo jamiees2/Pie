@@ -5,6 +5,7 @@ using System.Diagnostics.Contracts;
 
 using System.Globalization;
 using Pie.Math;
+using Pie.Strings;
 
 namespace Pie.Time
 {
@@ -116,6 +117,31 @@ namespace Pie.Time
         }
 
         /// <summary>
+        /// Converts the specified int to a weekday
+        /// </summary>
+        /// <param name="day">The current int</param>
+        /// <param name="start">The start of the week, defaults to Sunday(0)</param>
+        /// <returns>A datetime with the current day of week</returns>
+        public static DateTime AsDayOfWeek(this int day, int start = 0)
+        {
+            Contract.Requires(day >= 0);
+            Contract.Requires(start >= 0);
+            //3.3.2013 was a sunday, assume that day 0 is there
+            return (new DateTime(2013, 3, 3)).AddDays((start + day) % 7);
+        }
+
+        /// <summary>
+        /// Converts the datetime object into a string representing the current day of week in the current culture
+        /// </summary>
+        /// <param name="datetime">The current datetime object</param>
+        /// <returns>A string with the day of week</returns>
+        public static string ToStringDayOfWeek(this DateTime datetime)
+        {
+            return datetime.ToString("dddd").ToTitleCase();
+        }
+
+        #region Constellations
+        /// <summary>
         /// Returns the constellation of the current DateTime object
         /// </summary>
         /// <param name="date">The current date</param>
@@ -190,5 +216,6 @@ namespace Pie.Time
                     return "";
             }
         }
+        #endregion
     }
 }
