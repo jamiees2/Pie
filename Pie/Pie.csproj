@@ -130,6 +130,9 @@
     <Compile Include="Math\ForFraction\ForInt32\Vector.cs" />
     <Compile Include="Math\Geometry\Circle.cs" />
     <Compile Include="Math\Geometry\ContainmentType.cs" />
+    <Compile Include="Math\Geometry\Formulas\Circle.cs" />
+    <Compile Include="Math\Geometry\Formulas\Square.cs" />
+    <Compile Include="Math\Geometry\Formulas\Triangle.cs" />
     <Compile Include="Math\Geometry\GeometryFactory.cs" />
     <Compile Include="Math\Geometry\IntersectionType.cs" />
     <Compile Include="Math\Geometry\IPolygon.cs" />
