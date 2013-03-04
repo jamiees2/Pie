@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Pie.CharShapes
 {
@@ -46,6 +47,22 @@ namespace Pie.CharShapes
             }
             if(y!=1)
                 System.Console.WriteLine(symbol.ToString().PadLeft(x, symbol));
+        }
+
+        public void FSquareSpace(int size, char symbol)//Filled Square with some spaces
+        {
+            for (int i = 0; i < size; i++)
+            {
+                System.Console.WriteLine(Regex.Replace(symbol.ToString().PadLeft(size, symbol), "\\" + symbol, symbol+" "));
+            }
+        }
+
+        public void FXYSquareSpace(int x, int y, char symbol)//Filled Different width an height square with spaces
+        {
+            for (int i = 0; i < y; i++)
+            {
+                System.Console.WriteLine(Regex.Replace(symbol.ToString().PadLeft(x, symbol), "\\" + symbol, symbol + " "));
+            }
         }
     }
 }

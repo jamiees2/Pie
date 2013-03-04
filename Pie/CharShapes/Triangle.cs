@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Pie.CharShapes
 {
@@ -14,6 +15,16 @@ namespace Pie.CharShapes
             {
                 System.Console.Write(symbol.ToString().PadLeft((size - i), ' '));//Whitespace before printing symbol
                 System.Console.WriteLine(symbol.ToString().PadLeft(i * 2, symbol));//Print symbol
+            }
+        }
+
+        public void FTriangleSpace(int size, char symbol)//Filled Triangle with spaces
+        {
+            System.Console.WriteLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
+            for (int i = 1; i < size; i++)
+            {
+                System.Console.Write(symbol.ToString().PadLeft((size - i), ' '));//Whitespace before printing symbol
+                System.Console.WriteLine(Regex.Replace(symbol.ToString().PadLeft(i, symbol), "\\" + symbol, " "+symbol));
             }
         }
 
