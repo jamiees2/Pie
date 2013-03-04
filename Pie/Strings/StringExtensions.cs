@@ -513,5 +513,18 @@ namespace Pie.Strings
             Contract.Requires(s != null);
             return s.Without("\r").Split('\n');
         }
+
+        #region Regex
+        /// <summary>
+        /// Checks wether the selected string matches a specified expression
+        /// </summary>
+        /// <param name="s">The selected string</param>
+        /// <param name="pattern">The pattern to match the string against</param>
+        /// <returns>Wether the string matches the specified pattern</returns>
+        public static bool IsLike(this string s, string pattern)
+        {
+            return Regex.IsMatch(s, pattern);
+        }
+        #endregion
     }
 }
