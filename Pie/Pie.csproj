@@ -132,6 +132,7 @@
     <Compile Include="Math\Geometry\Formulas\Circle.cs" />
     <Compile Include="Math\Geometry\Formulas\Square.cs" />
     <Compile Include="Math\Geometry\Formulas\Triangle.cs" />
+    <Compile Include="Math\Geometry\Geometry2D.cs" />
     <Compile Include="Math\Geometry\GeometryFactory.cs" />
     <Compile Include="Math\Geometry\IntersectionType.cs" />
     <Compile Include="Math\Geometry\IPolygon.cs" />
