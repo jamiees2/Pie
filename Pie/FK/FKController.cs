@@ -111,7 +111,7 @@ namespace Pie.FK
             string[] strArray = header.SplitLines();
             int num = strArray.Select(x => x.Length).Max();
             string str1 = new string(this.VerticalChar, num + 4);
-            Console.WriteLine(str1);
+            PieConsole.WriteLine(str1);
             foreach (string str2 in strArray)
             {
                 PieConsole.Write(this.HorizontalChar)
@@ -196,94 +196,5 @@ namespace Pie.FK
         {
         }
 
-        #region Views
-        /// <summary>
-        /// A simple view for printing out the specified objects
-        /// </summary>
-        /// <param name="objs">The objects</param>
-        /// <param name="space">Wether to prepend with a newline</param>
-        public void SimpleView(IEnumerable<object> objs, bool space = true)
-        {
-            this.SimpleView(space, objs.ToArray());
-        }
-
-        /// <summary>
-        /// A simple view that prints out all it's parameters
-        /// </summary>
-        /// <param name="space">Wether to prepend with a newline</param>
-        /// <param name="objs">The objects</param>
-        public void SimpleView(bool space = true, params object[] objs)
-        {
-            if (space)
-                Console.WriteLine();
-            foreach (object obj in objs)
-                Console.WriteLine(obj);
-        }
-
-        /// <summary>
-        /// A simple view that prints out a dictionary
-        /// </summary>
-        /// <param name="objs">The dictionary to show</param>
-        /// <param name="between">What to print between the key and the value</param>
-        /// <param name="space">Wether to prepend the output with a newline</param>
-        public void SimpleView(Dictionary<string, object> objs, string between = ": ", bool space = true)
-        {
-            if (space)
-                Console.WriteLine();
-            foreach (KeyValuePair<string, object> keyValuePair in objs)
-            {
-                Console.Write(keyValuePair.Key);
-                Console.Write(between);
-                Console.WriteLine(keyValuePair.Value);
-            }
-        }
-
-        /// <summary>
-        /// A simple view that prints out a string
-        /// </summary>
-        /// <param name="s">The string to print out</param>
-        /// <param name="space">Wether to prepend the output with a newline</param>
-        public void SimpleView(string s, bool space = true)
-        {
-            if (space)
-                Console.WriteLine();
-            Console.WriteLine(s);
-        }
-
-        /// <summary>
-        /// A simple view that prints out a string based on the value of a boolean
-        /// </summary>
-        /// <param name="condition">The conditional</param>
-        /// <param name="trueString">What to print out if the condition is true</param>
-        /// <param name="falseString">What to print out if the condition is false</param>
-        /// <param name="space">Wehter to prepend the output with a newline</param>
-        public void BoolView(bool condition, string trueString, string falseString, bool space = true)
-        {
-            if (space)
-                Console.WriteLine();
-            Console.WriteLine(condition ? trueString : falseString);
-        }
-
-        /// <summary>
-        /// A simple view that prints out a string if the boolean is false
-        /// </summary>
-        /// <param name="condition">The conditional</param>
-        /// <param name="start">The output to prepend</param>
-        /// <param name="not"></param>
-        /// <param name="end"></param>
-        /// <param name="space"></param>
-        public void BoolView(bool condition, string start, string not, string end, bool space = true)
-        {
-            if (space)
-                PieConsole.WriteLine();
-            PieConsole.Write(start).Write(" ");
-            if (!condition)
-            {
-                PieConsole.Write(not).Write(" ");
-            }
-            PieConsole.WriteLine(end);
-        }
-
-        #endregion
     }
 }
