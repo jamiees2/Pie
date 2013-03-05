@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE;DOTNET4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>SharpBagDocs.xml</DocumentationFile>
+    <DocumentationFile>PieDocs.xml</DocumentationFile>
     <GenerateDocumentation>true</GenerateDocumentation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -88,13 +88,6 @@
     <Compile Include="FK\FKActionAttribute.cs" />
     <Compile Include="FK\FKActionMetadata.cs" />
     <Compile Include="FK\FKController.cs" />
-    <Compile Include="FK\FKModel.cs" />
-    <Compile Include="FK\FKViewAttribute.cs" />
-    <Compile Include="Console\PieConsole.cs" />
-    <Compile Include="Date\Constellation.cs" />
-    <Compile Include="Date\Day.cs" />
-    <Compile Include="Date\Month.cs" />
-    <Compile Include="Date\Year.cs" />
     <Compile Include="DisposableAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Collections\BinaryHeap.cs" />
@@ -178,6 +171,7 @@
     <Compile Include="Networking\TcpNetworkConnection.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="Option.cs" />
+    <Compile Include="PieConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomExtensions.cs" />
     <Compile Include="EnumerableEntry.cs" />

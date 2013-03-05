@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Pie</name>
+        <name>SharpBag</name>
     </assembly>
     <members>
         <member name="T:Pie.Games.CardStack">
@@ -4696,132 +4696,6 @@
             <param name="year">A year.</param>
             <returns>Whether the specified year is leap year or not.</returns>
         </member>
-        <member name="T:Pie.ConsoleHelper">
-            <summary>
-            A console helper for method chaining
-            </summary>
-        </member>
-        <member name="M:Pie.ConsoleHelper.GetInstance">
-            <summary>
-            Returns an instance of the console helper.
-            </summary>
-            <returns>An instance of the console helper.</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.Write``1(``0)">
-            <summary>
-            Writes the specified object to the console.
-            </summary>
-            <param name="o">The specified object.</param>
-            <returns>The current instance (for chaining).</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.WriteLine``1(``0)">
-            <summary>
-            Writes the specified object to the console, and then puts the cursor on a new line.
-            </summary>
-            <param name="o">The specified object.</param>
-            <returns>The current instance (for chaining).</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.Write(System.String,System.Object[])">
-            <summary>
-            Formats the specified string and objects with String.Format and the writes it to the console.
-            </summary>
-            <param name="format">The format string.</param>
-            <param name="args">The arguments.</param>
-            <returns>The current instance (for chaining).</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.WriteLine(System.String,System.Object[])">
-            <summary>
-            Formats the specified string and objects with String.Format, writes it to the console and the puts the cursor on a new line.
-            </summary>
-            <param name="format">The format string.</param>
-            <param name="args">The arguments.</param>
-            <returns>The current instance (for chaining).</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine">
-            <summary>
-            Reads a string from the console.
-            </summary>
-            <returns>The string read from the console.</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine(System.String@)">
-            <summary>
-            Reads a string from the console.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of PieConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String,System.String)">
-            <summary>
-            Reads a string from the console, but prepends it with the specified message
-            </summary>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the console</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String@,System.String,System.String)">
-            <summary>
-            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
-            </summary>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of PieConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the line converted to type T</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(``0@,System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type and stores it in the output variable
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of PieConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine``1">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <returns>The converted string read from the console.</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@)">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of PieConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.Wait(System.String)">
-            <summary>
-            Waits for the user to press a key
-            </summary>
-            <param name="msg">The message to show to the user.</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.WaitLine(System.String)">
-            <summary>
-            Waits for the user to press enter
-            </summary>
-            <param name="msg">The message to show to the user.</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.Clear">
-            <summary>
-            Clears the console
-            </summary>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ToString">
-            <see cref="M:System.Object.ToString"/>
-        </member>
         <member name="T:Pie.Misc.ProblemAttribute">
             <summary>
             A problem.
@@ -5183,6 +5057,132 @@
             <param name="i">The i.</param>
             <returns>The i-th coefficient.</returns>
         </member>
+        <member name="T:Pie.ConsoleHelper">
+            <summary>
+            A console helper for method chaining
+            </summary>
+        </member>
+        <member name="M:Pie.ConsoleHelper.GetInstance">
+            <summary>
+            Returns an instance of the console helper.
+            </summary>
+            <returns>An instance of the console helper.</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.Write``1(``0)">
+            <summary>
+            Writes the specified object to the console.
+            </summary>
+            <param name="o">The specified object.</param>
+            <returns>The current instance (for chaining).</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.WriteLine``1(``0)">
+            <summary>
+            Writes the specified object to the console, and then puts the cursor on a new line.
+            </summary>
+            <param name="o">The specified object.</param>
+            <returns>The current instance (for chaining).</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.Write(System.String,System.Object[])">
+            <summary>
+            Formats the specified string and objects with String.Format and the writes it to the console.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments.</param>
+            <returns>The current instance (for chaining).</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.WriteLine(System.String,System.Object[])">
+            <summary>
+            Formats the specified string and objects with String.Format, writes it to the console and the puts the cursor on a new line.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments.</param>
+            <returns>The current instance (for chaining).</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine">
+            <summary>
+            Reads a string from the console.
+            </summary>
+            <returns>The string read from the console.</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine(System.String@)">
+            <summary>
+            Reads a string from the console.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of PieConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message
+            </summary>
+            <param name="msg">The message</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>The string read from the console</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String@,System.String,System.String)">
+            <summary>
+            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
+            </summary>
+            <param name="msg">The message</param>
+            <param name="output">The output variable</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>An instance of PieConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(System.String,System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>The string read from the line converted to type T</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(``0@,System.String,System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type and stores it in the output variable
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="output">The output variable</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>An instance of PieConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine``1">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <returns>The converted string read from the console.</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@)">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of PieConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.Wait(System.String)">
+            <summary>
+            Waits for the user to press a key
+            </summary>
+            <param name="msg">The message to show to the user.</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.WaitLine(System.String)">
+            <summary>
+            Waits for the user to press enter
+            </summary>
+            <param name="msg">The message to show to the user.</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.Clear">
+            <summary>
+            Clears the console
+            </summary>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ToString">
+            <see cref="M:System.Object.ToString"/>
+        </member>
         <member name="T:Pie.Collections.MaxHeap`1">
             <summary>
             A max heap.
@@ -5292,54 +5292,6 @@
             <summary>
             Runs after each action
             </summary>
-        </member>
-        <member name="M:Pie.FK.FKController.SimpleView(System.Collections.Generic.IEnumerable{System.Object},System.Boolean)">
-            <summary>
-            A simple view for printing out the specified objects
-            </summary>
-            <param name="objs">The objects</param>
-            <param name="space">Wether to prepend with a newline</param>
-        </member>
-        <member name="M:Pie.FK.FKController.SimpleView(System.Boolean,System.Object[])">
-            <summary>
-            A simple view that prints out all it's parameters
-            </summary>
-            <param name="space">Wether to prepend with a newline</param>
-            <param name="objs">The objects</param>
-        </member>
-        <member name="M:Pie.FK.FKController.SimpleView(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Boolean)">
-            <summary>
-            A simple view that prints out a dictionary
-            </summary>
-            <param name="objs">The dictionary to show</param>
-            <param name="between">What to print between the key and the value</param>
-            <param name="space">Wether to prepend the output with a newline</param>
-        </member>
-        <member name="M:Pie.FK.FKController.SimpleView(System.String,System.Boolean)">
-            <summary>
-            A simple view that prints out a string
-            </summary>
-            <param name="s">The string to print out</param>
-            <param name="space">Wether to prepend the output with a newline</param>
-        </member>
-        <member name="M:Pie.FK.FKController.BoolView(System.Boolean,System.String,System.String,System.Boolean)">
-            <summary>
-            A simple view that prints out a string based on the value of a boolean
-            </summary>
-            <param name="condition">The conditional</param>
-            <param name="trueString">What to print out if the condition is true</param>
-            <param name="falseString">What to print out if the condition is false</param>
-            <param name="space">Wehter to prepend the output with a newline</param>
-        </member>
-        <member name="M:Pie.FK.FKController.BoolView(System.Boolean,System.String,System.String,System.String,System.Boolean)">
-            <summary>
-            A simple view that prints out a string if the boolean is false
-            </summary>
-            <param name="condition">The conditional</param>
-            <param name="start">The output to prepend</param>
-            <param name="not"></param>
-            <param name="end"></param>
-            <param name="space"></param>
         </member>
         <member name="P:Pie.FK.FKController.Title">
             <summary>
@@ -5774,135 +5726,6 @@
             <value>
             The columns.
             </value>
-        </member>
-        <member name="T:Pie.PieConsole">
-            <summary>
-            An upgrade to the usual System.Console
-            </summary>
-        </member>
-        <member name="M:Pie.PieConsole.Write">
-            <summary>
-            Writes nothing to the console
-            </summary>
-            <returns>An instance of the ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.Write(System.Object)">
-            <summary>
-            Writes the current instance to the console.
-            </summary>
-            <param name="o">The specified object.</param>
-            <returns>A console helper.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.Write(System.String,System.Object[])">
-            <summary>
-            Writes the current instance to the console.
-            </summary>
-            <param name="o">The specified object.</param>
-            <param name="format">The format string.</param>
-            <param name="objects">The objects.</param>
-            <returns>A console helper.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.WriteLine">
-            <summary>
-            Writes an empty line to the console
-            </summary>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.WriteLine(System.Object)">
-            <summary>
-            Writes the current instance to the console, and then puts the cursor on a new line.
-            </summary>
-            <returns>A console helper.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.WriteLine(System.String,System.Object[])">
-            <summary>
-            Writes the current instance to the console, and then puts the cursor on a new line.
-            </summary>
-            <param name="format">The format string.</param>
-            <param name="objects">The objects.</param>
-            <returns>A console helper.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine">
-            <summary>
-            Reads a string from the console.
-            </summary>
-            <returns>The string read from the console.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine(System.String@)">
-            <summary>
-            Reads a string from the console.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQ(System.String,System.String)">
-            <summary>
-            Reads a string from the console, but prepends it with the specified message
-            </summary>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the console</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQ(System.String@,System.String,System.String)">
-            <summary>
-            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
-            </summary>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQ``1(System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the line converted to type T</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQ``1(``0@,System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type and stores it in the output variable
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine``1">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <returns>The converted string read from the console.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine``1(``0@)">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.Wait(System.String)">
-            <summary>
-            Waits for the user to press a key
-            </summary>
-            <param name="msg">The message to show to the user.</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.WaitLine(System.String)">
-            <summary>
-            Waits for the user to press enter
-            </summary>
-            <param name="msg">The message to show to the user.</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.Clear">
-            <summary>
-            Clears the console
-            </summary>
-            <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="T:Pie.Networking.Services.ServerNameService">
             <summary>
@@ -11353,6 +11176,29 @@
             The current combination
             </summary>
         </member>
+        <member name="T:Pie.FK.FKActionMetadata">
+            <summary>
+            A container class for actions
+            </summary>
+        </member>
+        <member name="M:Pie.FK.FKActionMetadata.ToString">
+            <see cref="M:System.Object.ToString"/>
+        </member>
+        <member name="P:Pie.FK.FKActionMetadata.Method">
+            <summary>
+            The action method
+            </summary>
+        </member>
+        <member name="P:Pie.FK.FKActionMetadata.Name">
+            <summary>
+            The name, given by the action attribute
+            </summary>
+        </member>
+        <member name="P:Pie.FK.FKActionMetadata.Description">
+            <summary>
+            The description, given by the action attribute
+            </summary>
+        </member>
         <member name="T:Pie.Networking.NetworkClient">
             <summary>
             A network client.
@@ -12367,6 +12213,47 @@
             <param name="distinct">Whether the items should be distinct.</param>
             <returns>All the variations of the current instance.</returns>
         </member>
+        <member name="T:Pie.FK.FKActionAttribute">
+            <summary>
+            Used to designate an action method
+            </summary>
+        </member>
+        <member name="M:Pie.FK.FKActionAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new instance and sets the name
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Pie.FK.FKActionAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance with a name and description
+            </summary>
+            <param name="name"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:Pie.FK.FKActionAttribute.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new instance with a name and description, and wether it has been finished
+            </summary>
+            <param name="name"></param>
+            <param name="description"></param>
+            <param name="finished"></param>
+        </member>
+        <member name="P:Pie.FK.FKActionAttribute.Name">
+            <summary>
+            The name of the method
+            </summary>
+        </member>
+        <member name="P:Pie.FK.FKActionAttribute.Description">
+            <summary>
+            Description for the method
+            </summary>
+        </member>
+        <member name="P:Pie.FK.FKActionAttribute.Finished">
+            <summary>
+            Wether the method has been completed
+            </summary>
+        </member>
         <member name="T:Pie.Logging.InteractiveConsole">
             <summary>
             A class used for managing the console window, so that the program can both read from the console and write into the console at the samt time.
@@ -13254,6 +13141,135 @@
             Pi divided by two.
             </summary>
             <remarks>Pi / 2</remarks>
+        </member>
+        <member name="T:Pie.PieConsole">
+            <summary>
+            An upgrade to the usual System.Console
+            </summary>
+        </member>
+        <member name="M:Pie.PieConsole.Write">
+            <summary>
+            Writes nothing to the console
+            </summary>
+            <returns>An instance of the ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.Write(System.Object)">
+            <summary>
+            Writes the current instance to the console.
+            </summary>
+            <param name="o">The specified object.</param>
+            <returns>A console helper.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.Write(System.String,System.Object[])">
+            <summary>
+            Writes the current instance to the console.
+            </summary>
+            <param name="o">The specified object.</param>
+            <param name="format">The format string.</param>
+            <param name="objects">The objects.</param>
+            <returns>A console helper.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.WriteLine">
+            <summary>
+            Writes an empty line to the console
+            </summary>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.WriteLine(System.Object)">
+            <summary>
+            Writes the current instance to the console, and then puts the cursor on a new line.
+            </summary>
+            <returns>A console helper.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes the current instance to the console, and then puts the cursor on a new line.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="objects">The objects.</param>
+            <returns>A console helper.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine">
+            <summary>
+            Reads a string from the console.
+            </summary>
+            <returns>The string read from the console.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine(System.String@)">
+            <summary>
+            Reads a string from the console.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ(System.String,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message
+            </summary>
+            <param name="msg">The message</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>The string read from the console</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ(System.String@,System.String,System.String)">
+            <summary>
+            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
+            </summary>
+            <param name="msg">The message</param>
+            <param name="output">The output variable</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ``1(System.String,System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>The string read from the line converted to type T</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ``1(``0@,System.String,System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type and stores it in the output variable
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="output">The output variable</param>
+            <param name="suffix">The suffix to the message</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine``1">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <returns>The converted string read from the console.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine``1(``0@)">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.Wait(System.String)">
+            <summary>
+            Waits for the user to press a key
+            </summary>
+            <param name="msg">The message to show to the user.</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.WaitLine(System.String)">
+            <summary>
+            Waits for the user to press enter
+            </summary>
+            <param name="msg">The message to show to the user.</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.Clear">
+            <summary>
+            Clears the console
+            </summary>
+            <returns>An instance of ConsoleHelper</returns>
         </member>
     </members>
 </doc>
