@@ -5,8 +5,14 @@ using System.Text;
 
 namespace Pie.Units
 {
+    /// <summary>
+    /// A class representing an arbritrary number of Bytes
+    /// </summary>
     public class Byte : BitSize
     {
+        /// <summary>
+        /// <see cref="BitSize.Unit"/>
+        /// </summary>
         public override string Unit
         {
             get

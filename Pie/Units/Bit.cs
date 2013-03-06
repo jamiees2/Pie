@@ -5,9 +5,12 @@ using System.Text;
 
 namespace Pie.Units
 {
-
+    /// <summary>
+    /// A class representing an arbitrary number of bits
+    /// </summary>
     public class Bit : BitSize
     {
+        /// <see cref="BitSize.Unit"/>
         public override string Unit
         {
             get
@@ -16,6 +19,7 @@ namespace Pie.Units
             }
         }
 
+        /// <see cref="BitSize.BaseValue"/>
         public override double BaseValue
         {
             get
@@ -24,6 +28,7 @@ namespace Pie.Units
             }
         }
 
+        /// <see cref="BitSize"/>
         public Bit(double v)
             : base(v)
         {

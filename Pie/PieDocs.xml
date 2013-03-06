@@ -1601,6 +1601,78 @@
             The disposer which executes the dispose action.
             </summary>
         </member>
+        <member name="T:Pie.Units.BitSize">
+            <summary>
+            An interface for bits/bytes to implement
+            </summary>
+        </member>
+        <member name="M:Pie.Units.BitSize.#ctor(System.Double)">
+            <summary>
+            The simple constructor
+            </summary>
+            <param name="v">The value to use</param>
+        </member>
+        <member name="M:Pie.Units.BitSize.op_Implicit(Pie.Units.BitSize)~System.Double">
+            <summary>
+            An implicit overload, so that this can be cast to double easily
+            </summary>
+            <param name="v"></param>
+            <returns>The value as a double</returns>
+        </member>
+        <member name="M:Pie.Units.BitSize.As``2">
+            <summary>
+            Converts the current object to another instance
+            </summary>
+            <typeparam name="TValue">The type of the current instance</typeparam>
+            <typeparam name="TResult">The type of the instance to convert to</typeparam>
+            <returns>An object of type TResult with the instance set</returns>
+        </member>
+        <member name="M:Pie.Units.BitSize.ToString">
+            <summary>
+            Converts the instance to a string
+            </summary>
+            <returns>A string representing the current value of the instance</returns>
+        </member>
+        <member name="M:Pie.Units.BitSize.ToString(System.Boolean)">
+            <summary>
+            Converts the instance to a string, with the unit
+            </summary>
+            <param name="unit"></param>
+            <returns>The string representing the current value of the instance</returns>
+        </member>
+        <member name="M:Pie.Units.BitSize.ToString(System.Boolean,System.Func{System.Double,System.String})">
+            <summary>
+            Converts the current instance to a string, using a function
+            </summary>
+            <param name="unit"></param>
+            <param name="result"></param>
+            <returns>The output of the function passed with a string</returns>
+        </member>
+        <member name="P:Pie.Units.BitSize.Unit">
+            <summary>
+            The unit of the current instance
+            </summary>
+        </member>
+        <member name="P:Pie.Units.BitSize.BaseValue">
+            <summary>
+            The base value of the current instance (When is it one?)
+            </summary>
+        </member>
+        <member name="P:Pie.Units.BitSize.Value">
+            <summary>
+            The value of the current instance (The actual value)
+            </summary>
+        </member>
+        <member name="T:Pie.Units.Byte">
+            <summary>
+            A class representing an arbritrary number of Bytes
+            </summary>
+        </member>
+        <member name="P:Pie.Units.Byte.Unit">
+            <summary>
+            <see cref="P:Pie.Units.BitSize.Unit"/>
+            </summary>
+        </member>
         <member name="T:Pie.Networking.NetworkExtensions">
             <summary>
             Extensions methods for the Network class.
@@ -2125,6 +2197,25 @@
             <param name="e">The exponent.</param>
             <param name="m">The modulo.</param>
             <returns>The base raised to the exponent with the specified modulo.</returns>
+        </member>
+        <member name="M:Pie.Math.MathExtensions.ToText(System.Int32)">
+            <summary>
+            Converts the current integer to its english textual representation
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.Math.MathExtensions.ToText(System.Int32,System.String[],System.String[],System.String[],System.String,System.String)">
+            <summary>
+            Converts the specified integer to a textual representation
+            </summary>
+            <param name="n">The number</param>
+            <param name="ones">A string array representing the numbers 1-19</param>
+            <param name="tens">A string array representing the numbers 10-90</param>
+            <param name="powers">A string array representing all the powers of the number 10, and the negative</param>
+            <param name="and">The character to use for And</param>
+            <param name="space">The character to use for a space</param>
+            <returns>A string representing the interger</returns>
         </member>
         <member name="T:Pie.Networking.TcpNetworkConnection">
             <summary>
@@ -6448,6 +6539,20 @@
             <summary>
             Inner class that wraps an IComparer around a type T when it is IComparable
             </summary>
+        </member>
+        <member name="T:Pie.Units.Bit">
+            <summary>
+            A class representing an arbitrary number of bits
+            </summary>
+        </member>
+        <member name="M:Pie.Units.Bit.#ctor(System.Double)">
+            <see cref="T:Pie.Units.BitSize"/>
+        </member>
+        <member name="P:Pie.Units.Bit.Unit">
+            <see cref="P:Pie.Units.BitSize.Unit"/>
+        </member>
+        <member name="P:Pie.Units.Bit.BaseValue">
+            <see cref="P:Pie.Units.BitSize.BaseValue"/>
         </member>
         <member name="T:Pie.Logging.Logger">
             <summary>
