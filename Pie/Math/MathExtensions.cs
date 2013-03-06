@@ -1419,5 +1419,52 @@ namespace Pie.Math
             throw new ArgumentOutOfRangeException("An error occured");
         }
         #endregion
+
+        #region ToText
+
+        /// <summary>
+        /// Converts the current integer to its english textual representation
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string ToText(this int n)
+        {
+            return n.ToText(new string[]{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", 
+                "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"},
+                new string[] { "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" },
+                new string[] { "Negative", "One", "Ten", "Hundred", "Thousand", "Million"},
+                "And", " "
+            );
+            
+        }
+
+        /// <summary>
+        /// Converts the specified integer to a textual representation
+        /// </summary>
+        /// <param name="n">The number</param>
+        /// <param name="ones">A string array representing the numbers 1-19</param>
+        /// <param name="tens">A string array representing the numbers 10-90</param>
+        /// <param name="powers">A string array representing all the powers of the number 10, and the negative</param>
+        /// <param name="and">The character to use for And</param>
+        /// <param name="space">The character to use for a space</param>
+        /// <returns>A string representing the interger</returns>
+        public static string ToText(this int n, string[] ones, string[] tens, string[] powers, string and, string space)
+        {
+            Contract.Requires(ones.Length == 19);
+            Contract.Requires(tens.Length == 9);
+            string andspace = space + and + space;
+            if (n == 0) return "";
+            else if (n < 0) return powers[0]+ space + ToText(-n);
+            else if (n < 20) return ones[n - 1];
+            else if (n < 100) return tens[(n / 10) - 1] + ((n % 10 == 0) ? "" : (space + ToText(n % 10)));
+            else if (n < 200) return powers[1] + space + powers[3] + ((n % 100 == 0) ? "" : (andspace + ToText(n % 100)));
+            else if (n < 1000) return ToText(n / 100) + space + powers[3] + ((n % 100 == 0) ? "" : (andspace + ToText(n % 100)));
+            else if (n < 2000) return powers[1] + space + powers[4] + ((n % 1000 == 0) ? "" : (andspace + ToText(n % 1000)));
+            else if (n < 1000000) return ToText(n / 1000) + space + powers[4] + ((n % 1000 == 0) ? "" : (andspace + ToText(n % 1000)));
+            else if (n < 2000000) return powers[1] + space + powers[5] + ((n % 1000000 == 0) ? "" : (andspace + ToText(n % 1000000)));
+            else if (n < 1000000000L) return ToText(n / 1000000) + space + powers[5] + ((n % 1000000 == 0) ? "" : (andspace + ToText(n % 1000000)));
+            return "";
+        }
+        #endregion
     }
 }
