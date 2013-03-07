@@ -16,7 +16,6 @@
 
 TODO:
 	- File Reading and String Work simplification.
-	- Numbers to textual string representation (1 = one, 11 = eleven, 123 = one-hundred twentry three
 	- A Chess board with logic
 	- Methods for working with words in strings
 
