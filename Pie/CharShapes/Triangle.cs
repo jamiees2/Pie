@@ -30,6 +30,7 @@ namespace Pie.CharShapes
                 builder.Append(symbol.ToString().PadLeft((size - i), ' '));//Whitespace before printing symbol
                 builder.AppendLine(Regex.Replace(symbol.ToString().PadLeft(i, symbol), "\" + symbol, " "+symbol));
             }
+            return builder.ToString();
         }
         
         public void HTriangle(int size, char symbol)//Hollow Triangle
@@ -42,6 +43,7 @@ namespace Pie.CharShapes
                 builder.AppendLine(symbol.ToString().PadLeft(i * 2, ' '));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft((size*2)-1, symbol));//Triangle base
+            return builder.ToString();
         }
         
         public void HalfFTriangle(int size, char symbol)//Half Filled Triangle
@@ -53,6 +55,7 @@ namespace Pie.CharShapes
                 builder.Append(symbol.ToString().PadLeft((size - i), ' '));//Whitespace before printing symbol
                 builder.AppendLine(symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
+            return builder.ToString();
         }
         
         public void HalfFTriangleR(int size, char symbol)//Half Filled Triangle Reversed
@@ -63,6 +66,7 @@ namespace Pie.CharShapes
                 builder.AppendLine(symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
+            return builder.ToString();
         }
         
         public void HalfFTriangleRR(int size, char symbol)//Half Filled Triangle Reversed Reversed... Don't ask
@@ -73,6 +77,7 @@ namespace Pie.CharShapes
                 builder.AppendLine(symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
+            return builder.ToString();
         }
         
         public void HalfHTriangle(int size, char symbol)//Half Hollow Triangle
@@ -85,6 +90,7 @@ namespace Pie.CharShapes
                 builder.AppendLine(symbol.ToString().PadLeft(i, ' '));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, symbol));//Triangle base
+            return builder.ToString();
         }
         
         public void HalfHTriangleR(int size, char symbol)//Half Hollow Triangle Reversed
@@ -96,6 +102,7 @@ namespace Pie.CharShapes
                 builder.AppendLine(symbol.ToString().PadLeft(i, ' '));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, symbol));//Triangle base
+            return builder.ToString();
         }
         
         public void HalfHTriangleRR(int size, char symbol)//Half Hollow Triangle Reversed Reversed.. Don't ask
@@ -107,6 +114,7 @@ namespace Pie.CharShapes
                 builder.AppendLine(symbol.ToString().PadLeft(i, ' '));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Bottom of triangle
+            return builder.ToString();
         }
     }
 }
