@@ -8,7 +8,7 @@ namespace Pie.CharShapes
 {
     public class Square
     {
-        public void FSquare(int size, char symbol)//Filled Square
+        public static void FSquare(int size, char symbol)//Filled Square
         {
             for (int i = 0; i < size; i++)
             {
@@ -16,7 +16,7 @@ namespace Pie.CharShapes
             }
         }
 
-        public void HSquare(int size, char symbol)//Hollow Square
+        public static void HSquare(int size, char symbol)//Hollow Square
         {
             System.Console.WriteLine(symbol.ToString().PadLeft(size, symbol));//Top of square
             for (int i = 0; i < (size - 2); i++)
@@ -27,7 +27,7 @@ namespace Pie.CharShapes
                 System.Console.WriteLine(symbol.ToString().PadLeft(size, symbol));//Bottom of square
         }
 
-        public void FXYSquare(int x, int y, char symbol)//Filled Different width an height square
+        public static void FXYSquare(int x, int y, char symbol)//Filled Different width an height square
         {
             for (int i = 0; i < y; i++)
             {
@@ -35,7 +35,7 @@ namespace Pie.CharShapes
             }
         }
 
-        public void HXYSquare(int x, int y, char symbol)//Hollow Different width and height square
+        public static void HXYSquare(int x, int y, char symbol)//Hollow Different width and height square
         {
             System.Console.WriteLine(symbol.ToString().PadLeft(x, symbol));
             for (int i = 0; i < (y-2); i++)
@@ -49,7 +49,7 @@ namespace Pie.CharShapes
                 System.Console.WriteLine(symbol.ToString().PadLeft(x, symbol));
         }
 
-        public void FSquareSpace(int size, char symbol)//Filled Square with some spaces
+        public static void FSquareSpace(int size, char symbol)//Filled Square with some spaces
         {
             for (int i = 0; i < size; i++)
             {
@@ -57,7 +57,7 @@ namespace Pie.CharShapes
             }
         }
 
-        public void FXYSquareSpace(int x, int y, char symbol)//Filled Different width an height square with spaces
+        public static void FXYSquareSpace(int x, int y, char symbol)//Filled Different width an height square with spaces
         {
             for (int i = 0; i < y; i++)
             {
