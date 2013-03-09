@@ -5391,7 +5391,7 @@
             <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ToString">
-            <see cref="M:System.Object.ToString"/>
+            <see cref="!:Object.ToStr&#xA;            g()"/>
         </member>
         <member name="T:Pie.Collections.MaxHeap`1">
             <summary>
@@ -6083,6 +6083,7 @@
             <summary>
             Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
             </summary>
+            <param name="output"></param>
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>

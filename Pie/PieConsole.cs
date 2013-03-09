@@ -236,6 +236,7 @@ namespace Pie
         /// <summary>
         /// Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
         /// </summary>
+        /// <param name="output"></param>
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
@@ -311,12 +312,12 @@ namespace Pie
         /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
-        public static IEnumerable<string> ReadLines(string postfix)
+        public static IEnumerable<string> ReadLines(string postfix = null)
         {
             while (true)
             {
                 yield return ReadLine();
-                WriteLine(postfix);
+                if (postfix != null) WriteLine(postfix);
             }
         }
 
@@ -327,12 +328,14 @@ namespace Pie
         /// <param name="postfix"></param>
         /// <param name="suffix"></param>
         /// <returns></returns>
-        public static IEnumerable<string> ReadLinesQ(string msg, string postfix, string suffix = ": ")
+        public static IEnumerable<string> ReadLinesQ(string msg, string postfix = null, string suffix = ": ")
         {
+            int i = 1;
             while (true)
             {
-                yield return ReadLineQ(msg, suffix);
-                WriteLine(postfix);
+                Console.Write(msg + suffix, i);
+                yield return Console.ReadLine();
+                if (postfix != null) WriteLine(postfix);
             }
         }
 
@@ -341,12 +344,12 @@ namespace Pie
         /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ReadLines<T>(string postfix)
+        public static IEnumerable<T> ReadLines<T>(string postfix = null)
         {
             while (true)
             {
                 yield return ReadLine<T>();
-                WriteLine(postfix);
+                if (postfix != null) WriteLine(postfix);
             }
         }
 
@@ -357,12 +360,15 @@ namespace Pie
         /// <param name="postfix"></param>
         /// <param name="suffix"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ReadLinesQ<T>(string msg, string postfix, string suffix = ": ")
+        public static IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null, string suffix = ": ")
         {
+            int i = 1;
             while (true)
             {
-                yield return ReadLineQ<T>(msg, suffix);
-                WriteLine(postfix);
+                Console.Write(msg + suffix,i);
+                yield return Console.ReadLine().As<T>();
+                if (postfix != null) WriteLine(postfix);
+                i++;
             }
         }
 

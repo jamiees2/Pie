@@ -332,12 +332,12 @@ namespace Pie
         /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
-        public IEnumerable<string> ReadLines(string postfix)
+        public IEnumerable<string> ReadLines(string postfix = null)
         {
             while (true)
             {
                 yield return ReadLine();
-                WriteLine(postfix);
+                if (postfix != null) WriteLine(postfix);
             }
         }
 
@@ -348,12 +348,14 @@ namespace Pie
         /// <param name="postfix"></param>
         /// <param name="suffix"></param>
         /// <returns></returns>
-        public IEnumerable<string> ReadLinesQ(string msg, string postfix, string suffix = ": ")
+        public IEnumerable<string> ReadLinesQ(string msg, string postfix = null, string suffix = ": ")
         {
+            int i = 1;
             while (true)
             {
-                yield return ReadLineQ(msg, suffix);
-                WriteLine(postfix);
+                Console.Write(msg + suffix, i);
+                yield return Console.ReadLine();
+                if (postfix != null) WriteLine(postfix);
             }
         }
 
@@ -362,12 +364,12 @@ namespace Pie
         /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
-        public IEnumerable<T> ReadLines<T>(string postfix)
+        public IEnumerable<T> ReadLines<T>(string postfix = null)
         {
             while (true)
             {
                 yield return ReadLine<T>();
-                WriteLine(postfix);
+                if (postfix != null) WriteLine(postfix);
             }
         }
 
@@ -378,12 +380,15 @@ namespace Pie
         /// <param name="postfix"></param>
         /// <param name="suffix"></param>
         /// <returns></returns>
-        public IEnumerable<T> ReadLinesQ<T>(string msg, string postfix, string suffix = ": ")
+        public IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null, string suffix = ": ")
         {
+            int i = 1;
             while (true)
             {
-                yield return ReadLineQ<T>(msg, suffix);
-                WriteLine(postfix);
+                Console.Write(msg + suffix, i);
+                yield return Console.ReadLine().As<T>();
+                if (postfix != null) WriteLine(postfix);
+                i++;
             }
         }
 
@@ -421,7 +426,8 @@ namespace Pie
             return this;
         }
 
-        /// <see cref="Object.ToString()"/>
+        /// <see cref="Object.ToStr
+        /// g()"/>
         public override string ToString()
         {
             return String.Empty;
