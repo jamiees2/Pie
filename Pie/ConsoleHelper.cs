@@ -30,7 +30,8 @@ namespace Pie
         /// <returns>An instance of the ConsoleHelper</returns>
         public ConsoleHelper Write()
         {
-            return this.Write();
+            Console.Write("");
+            return this;
         }
 
         /// <summary>
@@ -40,11 +41,11 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper Write(object o)
         {
-            return this.Write(o);
+            Console.Write(o);
+            return this;
         }
 
         
-
         /// <summary>
         /// Writes the current instance to the console.
         /// </summary>
@@ -54,7 +55,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper Write(string format, params object[] objects)
         {
-            return this.Write(format, objects);
+            Console.Write(format, objects);
+            return this;
         }
 
         /// <summary>
@@ -63,7 +65,8 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper WriteLine()
         {
-            return WriteLine("\n");
+            Console.WriteLine();
+            return this;
         }
 
         /// <summary>
@@ -72,7 +75,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper WriteLine(object o)
         {
-            return this.WriteLine(o);
+            Console.WriteLine(o);
+            return this;
         }
 
         /// <summary>
@@ -83,7 +87,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper WriteLine(string format, params object[] objects)
         {
-            return this.WriteLine(format, objects);
+            Console.WriteLine(format, objects);
+            return this;
         }
 
         /// <summary>
@@ -320,6 +325,66 @@ namespace Pie
                 output = def;
             }
             return this;
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public IEnumerable<string> ReadLines(string postfix)
+        {
+            while (true)
+            {
+                yield return ReadLine();
+                WriteLine(postfix);
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public IEnumerable<string> ReadLinesQ(string msg, string postfix, string suffix = ": ")
+        {
+            while (true)
+            {
+                yield return ReadLineQ(msg, suffix);
+                WriteLine(postfix);
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public IEnumerable<T> ReadLines<T>(string postfix)
+        {
+            while (true)
+            {
+                yield return ReadLine<T>();
+                WriteLine(postfix);
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public IEnumerable<T> ReadLinesQ<T>(string msg, string postfix, string suffix = ": ")
+        {
+            while (true)
+            {
+                yield return ReadLineQ<T>(msg, suffix);
+                WriteLine(postfix);
+            }
         }
 
         /// <summary>

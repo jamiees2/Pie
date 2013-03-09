@@ -307,6 +307,68 @@ namespace Pie
         }
 
         /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static IEnumerable<string> ReadLines(string postfix)
+        {
+            while (true)
+            {
+                yield return ReadLine();
+                WriteLine(postfix);
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public static IEnumerable<string> ReadLinesQ(string msg, string postfix, string suffix = ": ")
+        {
+            while (true)
+            {
+                yield return ReadLineQ(msg, suffix);
+                WriteLine(postfix);
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> ReadLines<T>(string postfix)
+        {
+            while (true)
+            {
+                yield return ReadLine<T>();
+                WriteLine(postfix);
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> ReadLinesQ<T>(string msg, string postfix, string suffix = ": ")
+        {
+            while (true)
+            {
+                yield return ReadLineQ<T>(msg, suffix);
+                WriteLine(postfix);
+            }
+        }
+
+        
+
+        /// <summary>
         /// Waits for the user to press a key
         /// </summary>
         /// <param name="msg">The message to show to the user.</param>

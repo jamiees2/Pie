@@ -5338,6 +5338,38 @@
             <param name="def"></param>
             <returns></returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLines(System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLinesQ(System.String,System.String,System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLines``1(System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLinesQ``1(System.String,System.String,System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.Wait(System.String)">
             <summary>
             Waits for the user to press a key
@@ -6087,6 +6119,38 @@
             <param name="output"></param>
             <param name="validate"></param>
             <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLines(System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLinesQ(System.String,System.String,System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLines``1(System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLinesQ``1(System.String,System.String,System.String)">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <param name="suffix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.Wait(System.String)">

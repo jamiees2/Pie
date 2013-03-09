@@ -11,6 +11,7 @@ using Pie.Time;
 using Pie.Units;
 using Pie.IO;
 using Pie.FK;
+using Console = Pie.PieConsole;
 
 namespace $safeprojectname$
 {
@@ -28,7 +29,7 @@ namespace $safeprojectname$
     {
         static void Main(string[] args)
         {
-            (new FKProgram("FK$year$", args)).Run();
+            (new FK$year$("FK$year$", args)).Run();
         }
     }
 }
