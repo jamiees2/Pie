@@ -7,7 +7,7 @@ namespace Pie.Math.Geometry.Formulas
 {
     public class Square
     {
-        public double Area(int w, int h)
+        public static double Area(int w, int h)
         {
             return w * h;
         }
