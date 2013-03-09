@@ -7,12 +7,12 @@ namespace Pie.Math.Geometry.Formulas
 {
     public class Circle
     {
-        public double Area(int r)
+        public static double Area(int r)
         {
             return System.Math.PI * System.Math.Pow(r, 2);
         }
 
-        public double Perimeter(int r)
+        public static double Perimeter(int r)
         {
             return (System.Math.PI + System.Math.PI) * r;
         }
