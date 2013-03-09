@@ -109,9 +109,9 @@ namespace Pie.CharShapes
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, symbol));//Triangle base... on top
-            for (int i = size; i > 0; i--)
+            for (int i = size; i > 1; i--)
             {
-                builder.AppendLine(symbol.ToString().PadLeft(i, ' '));//Print symbol
+                builder.AppendLine(symbol.ToString().PadLeft(i-1, ' '));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Bottom of triangle
             return builder.ToString();
