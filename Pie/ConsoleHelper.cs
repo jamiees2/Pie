@@ -356,6 +356,7 @@ namespace Pie
                 Console.Write(msg + suffix, i);
                 yield return Console.ReadLine();
                 if (postfix != null) WriteLine(postfix);
+                i++;
             }
         }
 

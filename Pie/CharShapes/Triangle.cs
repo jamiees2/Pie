@@ -65,7 +65,7 @@ namespace Pie.CharShapes
             {
                 builder.AppendLine(symbol+symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
-            builder.AppendLine(symbol);//Bottom of triangle
+            builder.AppendLine(symbol.ToString());//Bottom of triangle
             return builder.ToString();
         }
         
@@ -76,7 +76,7 @@ namespace Pie.CharShapes
             {
                 builder.AppendLine(symbol+symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
-            builder.AppendLine(symbol);//Top of triangle
+            builder.AppendLine(symbol.ToString());//Top of triangle
             return builder.ToString();
         }
         
