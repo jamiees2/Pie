@@ -5159,35 +5159,47 @@
             </summary>
             <returns>An instance of the console helper.</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.Write``1(``0)">
+        <member name="M:Pie.ConsoleHelper.Write">
             <summary>
-            Writes the specified object to the console.
+            Writes nothing to the console
             </summary>
-            <param name="o">The specified object.</param>
-            <returns>The current instance (for chaining).</returns>
+            <returns>An instance of the ConsoleHelper</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.WriteLine``1(``0)">
+        <member name="M:Pie.ConsoleHelper.Write(System.Object)">
             <summary>
-            Writes the specified object to the console, and then puts the cursor on a new line.
+            Writes the current instance to the console.
             </summary>
             <param name="o">The specified object.</param>
-            <returns>The current instance (for chaining).</returns>
+            <returns>A console helper.</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.Write(System.String,System.Object[])">
             <summary>
-            Formats the specified string and objects with String.Format and the writes it to the console.
+            Writes the current instance to the console.
             </summary>
+            <param name="o">The specified object.</param>
             <param name="format">The format string.</param>
-            <param name="args">The arguments.</param>
-            <returns>The current instance (for chaining).</returns>
+            <param name="objects">The objects.</param>
+            <returns>A console helper.</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.WriteLine">
+            <summary>
+            Writes an empty line to the console
+            </summary>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.WriteLine(System.Object)">
+            <summary>
+            Writes the current instance to the console, and then puts the cursor on a new line.
+            </summary>
+            <returns>A console helper.</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.WriteLine(System.String,System.Object[])">
             <summary>
-            Formats the specified string and objects with String.Format, writes it to the console and the puts the cursor on a new line.
+            Writes the current instance to the console, and then puts the cursor on a new line.
             </summary>
             <param name="format">The format string.</param>
-            <param name="args">The arguments.</param>
-            <returns>The current instance (for chaining).</returns>
+            <param name="objects">The objects.</param>
+            <returns>A console helper.</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ReadLine">
             <summary>
@@ -5195,12 +5207,29 @@
             </summary>
             <returns>The string read from the console.</returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineV(System.Func{System.String,System.Boolean},System.String)">
+            <summary>
+            Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
+            </summary>
+            <param name="validate">The validation function</param>
+            <param name="def">The default value</param>
+            <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.ReadLine(System.String@)">
             <summary>
             Reads a string from the console.
             </summary>
             <param name="output">The output variable</param>
-            <returns>An instance of PieConsoleHelper</returns>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineV(System.String@,System.Func{System.String,System.Boolean},System.String)">
+            <summary>
+            Reads the line into the output, aslong as it passes the validation function
+            </summary>
+            <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String,System.String)">
             <summary>
@@ -5210,14 +5239,33 @@
             <param name="suffix">The suffix to the message</param>
             <returns>The string read from the console</returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQV(System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message, then returns it if it passes the validation function
+            </summary>
+            <param name="msg"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String@,System.String,System.String)">
             <summary>
             Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
             </summary>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of PieConsoleHelper</returns>
+            <param name="output"></param>
+            <param name="msg"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQV(System.String@,System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+            <summary>
+            Reads the line into the output, aslong as it passes the validation function
+            </summary>
+            <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ReadLineQ``1(System.String,System.String)">
             <summary>
@@ -5228,6 +5276,16 @@
             <param name="suffix">The suffix to the message</param>
             <returns>The string read from the line converted to type T</returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQV``1(System.String,System.Func{``0,System.Boolean},``0,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
+            </summary>
+            <param name="msg"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <param name="suffix"></param>
+            <returns>The value if it passes the validation function</returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.ReadLineQ``1(``0@,System.String,System.String)">
             <summary>
             Reads a string form the console and converts it to the specified type and stores it in the output variable
@@ -5236,7 +5294,17 @@
             <param name="msg">The message</param>
             <param name="output">The output variable</param>
             <param name="suffix">The suffix to the message</param>
-            <returns>An instance of PieConsoleHelper</returns>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQV``1(``0@,System.String,System.Func{``0,System.Boolean},``0,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
+            </summary>
+            <param name="msg"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <param name="suffix"></param>
+            <returns>The value if it passes the validation function</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ReadLine``1">
             <summary>
@@ -5244,12 +5312,31 @@
             </summary>
             <returns>The converted string read from the console.</returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine``1(System.Func{``0,System.Boolean},``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@)">
             <summary>
             Reads a string from the console and then converts it to the specified type.
             </summary>
             <param name="output">The output variable</param>
-            <returns>An instance of PieConsoleHelper</returns>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@,System.Func{``0,System.Boolean},``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns></returns>
         </member>
         <member name="M:Pie.ConsoleHelper.Wait(System.String)">
             <summary>
@@ -5374,12 +5461,12 @@
             An action that simply exits the program
             </summary>
         </member>
-        <member name="M:Pie.FK.FKController.PreActionExecute">
+        <member name="M:Pie.FK.FKController.PreAction">
             <summary>
             Runs before each action
             </summary>
         </member>
-        <member name="M:Pie.FK.FKController.PostActionExecute">
+        <member name="M:Pie.FK.FKController.PostAction">
             <summary>
             Runs after each action
             </summary>
@@ -5871,11 +5958,28 @@
             </summary>
             <returns>The string read from the console.</returns>
         </member>
+        <member name="M:Pie.PieConsole.ReadLineV(System.Func{System.String,System.Boolean},System.String)">
+            <summary>
+            Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
+            </summary>
+            <param name="validate">The validation function</param>
+            <param name="def">The default value</param>
+            <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
+        </member>
         <member name="M:Pie.PieConsole.ReadLine(System.String@)">
             <summary>
             Reads a string from the console.
             </summary>
             <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineV(System.String@,System.Func{System.String,System.Boolean},System.String)">
+            <summary>
+            Reads the line into the output, aslong as it passes the validation function
+            </summary>
+            <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.PieConsole.ReadLineQ(System.String,System.String)">
@@ -5886,13 +5990,32 @@
             <param name="suffix">The suffix to the message</param>
             <returns>The string read from the console</returns>
         </member>
+        <member name="M:Pie.PieConsole.ReadLineQV(System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message, then returns it if it passes the validation function
+            </summary>
+            <param name="msg"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.PieConsole.ReadLineQ(System.String@,System.String,System.String)">
             <summary>
             Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
             </summary>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
+            <param name="output"></param>
+            <param name="msg"></param>
+            <param name="suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQV(System.String@,System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+            <summary>
+            Reads the line into the output, aslong as it passes the validation function
+            </summary>
+            <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.PieConsole.ReadLineQ``1(System.String,System.String)">
@@ -5904,6 +6027,16 @@
             <param name="suffix">The suffix to the message</param>
             <returns>The string read from the line converted to type T</returns>
         </member>
+        <member name="M:Pie.PieConsole.ReadLineQV``1(System.String,System.Func{``0,System.Boolean},``0,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
+            </summary>
+            <param name="msg"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <param name="suffix"></param>
+            <returns>The value if it passes the validation function</returns>
+        </member>
         <member name="M:Pie.PieConsole.ReadLineQ``1(``0@,System.String,System.String)">
             <summary>
             Reads a string form the console and converts it to the specified type and stores it in the output variable
@@ -5914,11 +6047,30 @@
             <param name="suffix">The suffix to the message</param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
+        <member name="M:Pie.PieConsole.ReadLineQV``1(``0@,System.String,System.Func{``0,System.Boolean},``0,System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
+            </summary>
+            <param name="msg"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <param name="suffix"></param>
+            <returns>The value if it passes the validation function</returns>
+        </member>
         <member name="M:Pie.PieConsole.ReadLine``1">
             <summary>
             Reads a string from the console and then converts it to the specified type.
             </summary>
             <returns>The converted string read from the console.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine``1(System.Func{``0,System.Boolean},``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.ReadLine``1(``0@)">
             <summary>
@@ -5926,6 +6078,16 @@
             </summary>
             <param name="output">The output variable</param>
             <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine``1(``0@,System.Func{``0,System.Boolean},``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.Wait(System.String)">
             <summary>
@@ -9934,6 +10096,154 @@
             Gets or sets the <see cref="T:Pie.Math.ForComplex.Vector"/> at the specified index.
             </summary>
         </member>
+        <member name="T:Pie.Math.Geometry.Geometry2D">
+            <summary>
+            Contains geometry formulas for most of the concievable 2D shapes
+            </summary>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.TriangleArea(System.Double,System.Double)">
+            <summary>
+            Calculates the area of the triangle, given the width and height of the triangle
+            </summary>
+            <param name="b"></param>
+            <param name="h"></param>
+            <returns>The area of a triangle with width b, and height h</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.TriangleArea(System.Double,System.Double,System.Double)">
+            <summary>
+            The Area of a triangle, given all the sides of the triangle
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <returns>The area of a triangle given the sides a, b and c</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.TriangleArea(System.Double)">
+            <summary>
+            The area of an equilateral triangle, given the length of one side
+            </summary>
+            <param name="a"></param>
+            <returns>The area of an equilateral triangle given the sides a</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.TrianglePerimeter(System.Double,System.Double,System.Double)">
+            <summary>
+            The perimeter of a triangle given the sides a, b and c
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <returns>The perimeter of the given triangle</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.SquareArea(System.Double)">
+            <summary>
+            Calculates the area of a square, given the length of one side
+            </summary>
+            <param name="a">The area of a square with sides a</param>
+            <returns>The area of the given square</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.RectangleArea(System.Double,System.Double)">
+            <summary>
+            Calculates the area of a rectangle, given the sides a and b
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>The area of the given rectangle</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.ParalellogramArea(System.Double,System.Double)">
+            <summary>
+            Returns the area of the given paralellogram
+            </summary>
+            <param name="b"></param>
+            <param name="h"></param>
+            <returns>The area of the given paralellogram</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.TrapezoidArea(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the area of a trapezoid, given the height and the sides
+            </summary>
+            <param name="h"></param>
+            <param name="b"></param>
+            <param name="b1"></param>
+            <returns>The area of the given trapezoid</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.SquarePerimeter(System.Double)">
+            <summary>
+            Calculates the perimeter of the given square
+            </summary>
+            <param name="a"></param>
+            <returns>The perimeter of the given square</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.RectanglePerimeter(System.Double,System.Double)">
+            <summary>
+            Calculates the perimeter of the given rectangle
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>The perimeter of the given rectangle</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.ParalellogramPerimeter(System.Double,System.Double)">
+            <summary>
+            Calculates the perimeter of the given paralellogram
+            </summary>
+            <param name="b"></param>
+            <param name="h"></param>
+            <returns>The perimeter of the given paralellogram</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.RectanglePerimeter(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the perimeter of a rectangle, given all the sides of the 4-sided polygon
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
+            <returns>The perimeter of the given 4-sided polygon</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.CircleArea(System.Double)">
+            <summary>
+            Calculates the area of the circle, given the radius
+            </summary>
+            <param name="r"></param>
+            <returns>The area of the given circle</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.EllipseArea(System.Double,System.Double)">
+            <summary>
+            Calculates the area of the given ellipse
+            </summary>
+            <param name="r"></param>
+            <param name="r1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.CirclePerimeter(System.Double)">
+            <summary>
+            Calculates the perimeter of the given circle
+            </summary>
+            <param name="r"></param>
+            <returns>The perimeter of the circle</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.EllipsePerimeter(System.Double,System.Double)">
+            <summary>
+            Calculates an estimation of the perimeter of the given ellipse
+            </summary>
+            <param name="r"></param>
+            <param name="r1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.RegularPolygonArea(System.Double,System.Double)">
+            <summary>
+            Calculates the area of a regular polygon
+            </summary>
+            <param name="n">The number of sides in the polygon</param>
+            <param name="b">The length of any side in the polygon</param>
+            <returns>The area of the given polygon</returns>
+        </member>
+        <member name="M:Pie.Math.Geometry.Geometry2D.PolygonPerimeter(System.Double[])">
+            <summary>
+            Calculates the perimeter of the given polygon, given all the sides of them
+            </summary>
+            <param name="sides"></param>
+            <returns>The perimeter of the given polygon</returns>
+        </member>
         <member name="T:Pie.Utils">
             <summary>
             A static class with utility methods.
@@ -13375,154 +13685,6 @@
             Pi divided by two.
             </summary>
             <remarks>Pi / 2</remarks>
-        </member>
-        <member name="T:Pie.Math.Geometry.Geometry2D">
-            <summary>
-            Contains geometry formulas for most of the concievable 2D shapes
-            </summary>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.TriangleArea(System.Double,System.Double)">
-            <summary>
-            Calculates the area of the triangle, given the width and height of the triangle
-            </summary>
-            <param name="b"></param>
-            <param name="h"></param>
-            <returns>The area of a triangle with width b, and height h</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.TriangleArea(System.Double,System.Double,System.Double)">
-            <summary>
-            The Area of a triangle, given all the sides of the triangle
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <param name="c"></param>
-            <returns>The area of a triangle given the sides a, b and c</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.TriangleArea(System.Double)">
-            <summary>
-            The area of an equilateral triangle, given the length of one side
-            </summary>
-            <param name="a"></param>
-            <returns>The area of an equilateral triangle given the sides a</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.TrianglePerimeter(System.Double,System.Double,System.Double)">
-            <summary>
-            The perimeter of a triangle given the sides a, b and c
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <param name="c"></param>
-            <returns>The perimeter of the given triangle</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.SquareArea(System.Double)">
-            <summary>
-            Calculates the area of a square, given the length of one side
-            </summary>
-            <param name="a">The area of a square with sides a</param>
-            <returns>The area of the given square</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.RectangleArea(System.Double,System.Double)">
-            <summary>
-            Calculates the area of a rectangle, given the sides a and b
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns>The area of the given rectangle</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.ParalellogramArea(System.Double,System.Double)">
-            <summary>
-            Returns the area of the given paralellogram
-            </summary>
-            <param name="b"></param>
-            <param name="h"></param>
-            <returns>The area of the given paralellogram</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.TrapezoidArea(System.Double,System.Double,System.Double)">
-            <summary>
-            Calculates the area of a trapezoid, given the height and the sides
-            </summary>
-            <param name="h"></param>
-            <param name="b"></param>
-            <param name="b1"></param>
-            <returns>The area of the given trapezoid</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.SquarePerimeter(System.Double)">
-            <summary>
-            Calculates the perimeter of the given square
-            </summary>
-            <param name="a"></param>
-            <returns>The perimeter of the given square</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.RectanglePerimeter(System.Double,System.Double)">
-            <summary>
-            Calculates the perimeter of the given rectangle
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns>The perimeter of the given rectangle</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.ParalellogramPerimeter(System.Double,System.Double)">
-            <summary>
-            Calculates the perimeter of the given paralellogram
-            </summary>
-            <param name="b"></param>
-            <param name="h"></param>
-            <returns>The perimeter of the given paralellogram</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.RectanglePerimeter(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Calculates the perimeter of a rectangle, given all the sides of the 4-sided polygon
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <param name="c"></param>
-            <param name="d"></param>
-            <returns>The perimeter of the given 4-sided polygon</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.CircleArea(System.Double)">
-            <summary>
-            Calculates the area of the circle, given the radius
-            </summary>
-            <param name="r"></param>
-            <returns>The area of the given circle</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.EllipseArea(System.Double,System.Double)">
-            <summary>
-            Calculates the area of the given ellipse
-            </summary>
-            <param name="r"></param>
-            <param name="r1"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.CirclePerimeter(System.Double)">
-            <summary>
-            Calculates the perimeter of the given circle
-            </summary>
-            <param name="r"></param>
-            <returns>The perimeter of the circle</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.EllipsePerimeter(System.Double,System.Double)">
-            <summary>
-            Calculates an estimation of the perimeter of the given ellipse
-            </summary>
-            <param name="r"></param>
-            <param name="r1"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.RegularPolygonArea(System.Double,System.Double)">
-            <summary>
-            Calculates the area of a regular polygon
-            </summary>
-            <param name="n">The number of sides in the polygon</param>
-            <param name="b">The length of any side in the polygon</param>
-            <returns>The area of the given polygon</returns>
-        </member>
-        <member name="M:Pie.Math.Geometry.Geometry2D.PolygonPerimeter(System.Double[])">
-            <summary>
-            Calculates the perimeter of the given polygon, given all the sides of them
-            </summary>
-            <param name="sides"></param>
-            <returns>The perimeter of the given polygon</returns>
         </member>
     </members>
 </doc>

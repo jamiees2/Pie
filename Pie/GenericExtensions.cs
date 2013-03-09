@@ -139,7 +139,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper Write<T>(this T o)
         {
-            return ConsoleHelper.GetInstance().Write<T>(o);
+            return ConsoleHelper.GetInstance().Write(o);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper WriteLine<T>(this T o)
         {
-            return ConsoleHelper.GetInstance().WriteLine<T>(o);
+            return ConsoleHelper.GetInstance().WriteLine(o);
         }
 
         /// <summary>

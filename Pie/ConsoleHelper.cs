@@ -43,6 +43,8 @@ namespace Pie
             return this.Write(o);
         }
 
+        
+
         /// <summary>
         /// Writes the current instance to the console.
         /// </summary>
