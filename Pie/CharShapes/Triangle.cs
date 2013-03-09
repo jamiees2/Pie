@@ -7,7 +7,7 @@ using Pie;
 
 namespace Pie.CharShapes
 {   
-    public class Triangle
+    public static class Triangle
     {
         public static string FTriangle(int size, char symbol)//Filled Triangle
         {
