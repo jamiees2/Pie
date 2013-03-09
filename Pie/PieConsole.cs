@@ -80,6 +80,25 @@ namespace Pie
         }
 
         /// <summary>
+        /// Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
+        /// </summary>
+        /// <param name="validate">The validation function</param>
+        /// <param name="def">The default value</param>
+        /// <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
+        public static string ReadLineV(Func<string, bool> validate, string def = default(string))
+        {
+            string line = Console.ReadLine();
+            if (validate(line))
+            {
+                return line;
+            }
+            else
+            {
+                return def;
+            }
+        }
+
+        /// <summary>
         /// Reads a string from the console.
         /// </summary>
         /// <param name="output">The output variable</param>
@@ -87,6 +106,23 @@ namespace Pie
         public static ConsoleHelper ReadLine(out string output)
         {
             output = Console.ReadLine();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Reads the line into the output, aslong as it passes the validation function
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper ReadLineV(out string output, Func<string, bool> validate, string def = default(string))
+        {
+            output = Console.ReadLine();
+            if (!validate(output))
+            {
+                output = def;
+            }
             return ConsoleHelper.GetInstance();
         }
 
@@ -103,16 +139,51 @@ namespace Pie
         }
 
         /// <summary>
+        /// Reads a string from the console, but prepends it with the specified message, then returns it if it passes the validation function
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public static string ReadLineQV(string msg, Func<string, bool> validate, string def = default(string), string suffix = ": ")
+        {
+            string output = ReadLineQ(msg, suffix);
+            if (validate(output))
+            {
+                return output;
+            }
+            return def;
+        }
+
+        /// <summary>
         /// Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
         /// </summary>
-        /// <param name="msg">The message</param>
-        /// <param name="output">The output variable</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>An instance of ConsoleHelper</returns>
+        /// <param name="output"></param>
+        /// <param name="msg"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
         public static ConsoleHelper ReadLineQ(out string output, string msg, string suffix = ": ")
         {
             Write(msg + suffix);
             output = Console.ReadLine();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Reads the line into the output, aslong as it passes the validation function
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper ReadLineQV(out string output, string msg, Func<string, bool> validate, string def = default(string), string suffix = ": ")
+        {
+            output = ReadLineQ(msg, suffix);
+            if (!validate(output))
+            {
+                output = def;
+            }
             return ConsoleHelper.GetInstance();
         }
 
@@ -127,6 +198,24 @@ namespace Pie
         {
             Write(msg + suffix);
             return Console.ReadLine().As<T>();
+        }
+
+        /// <summary>
+        /// Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <param name="suffix"></param>
+        /// <returns>The value if it passes the validation function</returns>
+        public static T ReadLineQV<T>(string msg, Func<T, bool> validate, T def = default(T), string suffix = ": ")
+        {
+            T output = ReadLineQ<T>(msg, suffix);
+            if (validate(output))
+            {
+                return output;
+            }
+            return def;
         }
 
         /// <summary>
@@ -145,12 +234,47 @@ namespace Pie
         }
 
         /// <summary>
+        /// Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <param name="suffix"></param>
+        /// <returns>The value if it passes the validation function</returns>
+        public static ConsoleHelper ReadLineQV<T>(out T output, string msg, Func<T, bool> validate, T def = default(T), string suffix = ": ")
+        {
+            output = ReadLineQ<T>(msg, suffix);
+            if (!validate(output))
+            {
+                output = def;
+            }
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
         /// Reads a string from the console and then converts it to the specified type.
         /// </summary>
         /// <returns>The converted string read from the console.</returns>
         public static T ReadLine<T>()
         {
             return Console.ReadLine().As<T>();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static T ReadLine<T>(Func<T, bool> validate, T def = default(T))
+        {
+            T output = ReadLine<T>();
+            if (validate(output))
+            {
+                return output;
+            }
+            return def;
         }
 
         /// <summary>
@@ -161,6 +285,24 @@ namespace Pie
         public static ConsoleHelper ReadLine<T>(out T output)
         {
             output = Console.ReadLine().As<T>();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="output"></param>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static ConsoleHelper ReadLine<T>(out T output, Func<T, bool> validate, T def = default(T))
+        {
+            output = ReadLine<T>();
+            if (!validate(output))
+            {
+                output = def;
+            }
             return ConsoleHelper.GetInstance();
         }
 

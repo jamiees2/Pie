@@ -74,6 +74,7 @@ namespace Pie.FK
             {
                 if (args == null || !args.Any())
                     return;
+                //Otherwise, just execute the actions passed via args
                 bool flag = args.Skip(1).Any() && args[1].StartsWithIgnoreCase("T");
                 while (true)
                 {
@@ -131,20 +132,20 @@ namespace Pie.FK
         /// <param name="header">Wether to show the header</param>
         public void ExecuteAction(string actionName, bool pause = false, bool header = false)
         {
-            FKActionMetadata fkActionMetadata = this.Actions.Select(a => new { A = a, Distance = a.Name.DistanceTo(actionName, false) })
+            FKActionMetadata mData = this.Actions.Select(a => new { A = a, Distance = a.Name.DistanceTo(actionName, false) })
                 .Where(x => x.Distance <= 3)
                 .OrderBy(x => x.Distance)
                 .Select(x => x.A).FirstOrDefault<FKActionMetadata>();
 
-            if (fkActionMetadata == null || actionName.Trim() == "")
-                fkActionMetadata = this.Actions.FirstOrDefault(a => a.Name == "Exit");
-            if (fkActionMetadata == null)
+            if (mData == null || actionName.Trim() == "")
+                mData = this.Actions.FirstOrDefault(a => a.Name == "Exit");
+            if (mData == null)
                 return;
-            this.PreActionExecute();
+            this.PreAction();
             if (header)
-                this.WriteHeader(fkActionMetadata.Name + (fkActionMetadata.Description != null ? "\n" + fkActionMetadata.Description : ""));
-            fkActionMetadata.Method.Invoke((object)this, new object[0]);
-            this.PostActionExecute();
+                this.WriteHeader(mData.Name + (mData.Description != null ? "\n" + mData.Description : ""));
+            mData.Method.Invoke((object)this, new object[0]);
+            this.PostAction();
             if (!pause)
                 return;
             PieConsole.ReadLine();
@@ -185,14 +186,14 @@ namespace Pie.FK
         /// <summary>
         /// Runs before each action
         /// </summary>
-        public virtual void PreActionExecute()
+        public virtual void PreAction()
         {
         }
 
         /// <summary>
         /// Runs after each action
         /// </summary>
-        public virtual void PostActionExecute()
+        public virtual void PostAction()
         {
         }
 
