@@ -9,7 +9,7 @@ namespace Pie.CharShapes
 {   
     public class Triangle
     {
-        public void FTriangle(int size, char symbol)//Filled Triangle
+        public string FTriangle(int size, char symbol)//Filled Triangle
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
@@ -21,19 +21,19 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void FTriangleSpace(int size, char symbol)//Filled Triangle with spaces
+        public string FTriangleSpace(int size, char symbol)//Filled Triangle with spaces
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
             for (int i = 1; i < size; i++)
             {
                 builder.Append(symbol.ToString().PadLeft((size - i), ' '));//Whitespace before printing symbol
-                builder.AppendLine(Regex.Replace(symbol.ToString().PadLeft(i, symbol), "\" + symbol, " "+symbol));
+                //builder.AppendLine(Regex.Replace(symbol.ToString().PadLeft(i, symbol), "\" + symbol, " "+symbol));
             }
             return builder.ToString();
         }
         
-        public void HTriangle(int size, char symbol)//Hollow Triangle
+        public string HTriangle(int size, char symbol)//Hollow Triangle
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
@@ -46,7 +46,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void HalfFTriangle(int size, char symbol)//Half Filled Triangle
+        public string HalfFTriangle(int size, char symbol)//Half Filled Triangle
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
@@ -58,7 +58,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void HalfFTriangleR(int size, char symbol)//Half Filled Triangle Reversed
+        public string HalfFTriangleR(int size, char symbol)//Half Filled Triangle Reversed
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 1; i < size; i++)
@@ -69,7 +69,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void HalfFTriangleRR(int size, char symbol)//Half Filled Triangle Reversed Reversed... Don't ask
+        public string HalfFTriangleRR(int size, char symbol)//Half Filled Triangle Reversed Reversed... Don't ask
         {
             StringBuilder builder = new StringBuilder();
             for (int i = size; i < 0; i--)
@@ -80,7 +80,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void HalfHTriangle(int size, char symbol)//Half Hollow Triangle
+        public string HalfHTriangle(int size, char symbol)//Half Hollow Triangle
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
@@ -93,7 +93,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void HalfHTriangleR(int size, char symbol)//Half Hollow Triangle Reversed
+        public string HalfHTriangleR(int size, char symbol)//Half Hollow Triangle Reversed
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
@@ -105,7 +105,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public void HalfHTriangleRR(int size, char symbol)//Half Hollow Triangle Reversed Reversed.. Don't ask
+        public string HalfHTriangleRR(int size, char symbol)//Half Hollow Triangle Reversed Reversed.. Don't ask
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, symbol));//Triangle base... on top
