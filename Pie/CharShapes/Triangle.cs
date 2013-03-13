@@ -21,7 +21,7 @@ namespace Pie.CharShapes
             return builder.ToString();
         }
         
-        public static string FTriangleSpace(int size, char symbol)//Filled Triangle with spaces
+        /*public static string FTriangleSpace(int size, char symbol)//Filled Triangle with spaces
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
@@ -31,7 +31,7 @@ namespace Pie.CharShapes
                 //builder.AppendLine(Regex.Replace(symbol.ToString().PadLeft(i, symbol), "\" + symbol, " "+symbol));
             }
             return builder.ToString();
-        }
+        } U can try doing this if you want, James*/
         
         public static string HTriangle(int size, char symbol)//Hollow Triangle
         {
@@ -72,7 +72,7 @@ namespace Pie.CharShapes
         public static string HalfFTriangleRR(int size, char symbol)//Half Filled Triangle Reversed Reversed... Don't ask
         {
             StringBuilder builder = new StringBuilder();
-            for (int i = size; i < 0; i--)
+            for (int i = size; i > 0; i--)
             {
                 builder.AppendLine(symbol+symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
@@ -96,10 +96,10 @@ namespace Pie.CharShapes
         public static string HalfHTriangleR(int size, char symbol)//Half Hollow Triangle Reversed
         {
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Top of triangle
+            builder.AppendLine(symbol.ToString());//Top of triangle
             for (int i = 1; i < size - 1; i++)
             {
-                builder.AppendLine(symbol.ToString().PadLeft(i, ' '));//Print symbol
+                builder.AppendLine(symbol.ToString()+symbol.ToString().PadLeft(i, ' '));//Print symbol
             }
             builder.AppendLine(symbol.ToString().PadLeft(size, symbol));//Triangle base
             return builder.ToString();
@@ -111,9 +111,9 @@ namespace Pie.CharShapes
             builder.AppendLine(symbol.ToString().PadLeft(size, symbol));//Triangle base... on top
             for (int i = size; i > 1; i--)
             {
-                builder.AppendLine(symbol.ToString().PadLeft(i-1, ' '));//Print symbol
+                builder.AppendLine(symbol.ToString()+symbol.ToString().PadLeft(i-1, ' '));//Print symbol
             }
-            builder.AppendLine(symbol.ToString().PadLeft(size, ' '));//Bottom of triangle
+            builder.AppendLine(symbol.ToString();//Bottom of triangle
             return builder.ToString();
         }
     }
