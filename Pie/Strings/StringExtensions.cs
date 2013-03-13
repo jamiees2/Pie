@@ -514,6 +514,33 @@ namespace Pie.Strings
             return s.Without("\r").Split('\n');
         }
 
+        /// <summary>
+        /// Repeats a string the specified number of times
+        /// </summary>
+        /// <param name="s">The string</param>
+        /// <param name="n">The number of times to repeat the string</param>
+        /// <returns>The string repeated n times</returns>
+        public static string Repeat(this string s, int n)
+        {
+            string r = "";
+            for (int i = 0; i < n; i++)
+            {
+                r += s;
+            }
+            return r;
+        }
+
+        /// <summary>
+        /// Substrings from the end of the string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string SubstringEnd(this string s, int n)
+        {
+            return s.Substring(0, s.Length - System.Math.Max(0, n));
+        }
+
         #region Regex
         /// <summary>
         /// Checks wether the selected string matches a specified expression

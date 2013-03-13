@@ -2205,6 +2205,13 @@
             <param name="n"></param>
             <returns></returns>
         </member>
+        <member name="M:Pie.Math.MathExtensions.ToTextICE(System.Int32)">
+            <summary>
+            Converts the current integer to its icelandic textual representation
+            </summary>
+            <param name="n"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.Math.MathExtensions.ToText(System.Int32,System.String[],System.String[],System.String[],System.String,System.String)">
             <summary>
             Converts the specified integer to a textual representation
@@ -9344,6 +9351,22 @@
             </summary>
             <param name="s">The selected string</param>
             <returns>The string split by newlines</returns>
+        </member>
+        <member name="M:Pie.Strings.StringExtensions.Repeat(System.String,System.Int32)">
+            <summary>
+            Repeats a string the specified number of times
+            </summary>
+            <param name="s">The string</param>
+            <param name="n">The number of times to repeat the string</param>
+            <returns>The string repeated n times</returns>
+        </member>
+        <member name="M:Pie.Strings.StringExtensions.SubstringEnd(System.String,System.Int32)">
+            <summary>
+            Substrings from the end of the string
+            </summary>
+            <param name="s"></param>
+            <param name="n"></param>
+            <returns></returns>
         </member>
         <member name="M:Pie.Strings.StringExtensions.IsLike(System.String,System.String)">
             <summary>

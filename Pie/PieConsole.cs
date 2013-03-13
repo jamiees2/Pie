@@ -11,6 +11,17 @@ namespace Pie
     public static class PieConsole
     {
         /// <summary>
+        /// Private string for the Suffix
+        /// </summary>
+        private static string _Suffix = ": ";
+
+        /// <summary>
+        /// The character to use after questions
+        /// </summary>
+        public static string Suffix { get {return _Suffix; } set { _Suffix = value; } };
+
+        #region Write Methods
+        /// <summary>
         /// Writes nothing to the console
         /// </summary>
         /// <returns>An instance of the ConsoleHelper</returns>
@@ -69,7 +80,9 @@ namespace Pie
         {
             return ConsoleHelper.GetInstance().WriteLine(format, objects);
         }
+        #endregion
 
+        #region Read Methods
         /// <summary>
         /// Reads a string from the console.
         /// </summary>
@@ -79,6 +92,92 @@ namespace Pie
             return Console.ReadLine();
         }
 
+        /// <summary>
+        /// Reads a string from the console.
+        /// </summary>
+        /// <param name="output">The output variable</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper ReadLine(out string output)
+        {
+            output = Console.ReadLine();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Reads a string from the console, but prepends it with the specified message
+        /// </summary>
+        /// <param name="msg">The message</param>
+        /// <param name="Suffix">The Suffix to the message</param>
+        /// <returns>The string read from the console</returns>
+        public static string ReadLineQ(string msg)
+        {
+            Write(msg + Suffix);
+            return Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="msg"></param>
+        /// <param name="Suffix"></param>
+        /// <returns></returns>
+        public static ConsoleHelper ReadLineQ(out string output, string msg)
+        {
+            Write(msg + Suffix);
+            output = Console.ReadLine();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Reads a string form the console and converts it to the specified type
+        /// </summary>
+        /// <typeparam name="T">The type to convert to</typeparam>
+        /// <param name="msg">The message</param>
+        /// <param name="Suffix">The Suffix to the message</param>
+        /// <returns>The string read from the line converted to type T</returns>
+        public static T ReadLineQ<T>(string msg)
+        {
+            Write(msg + Suffix);
+            return Console.ReadLine().As<T>();
+        }
+
+        /// <summary>
+        /// Reads a string form the console and converts it to the specified type and stores it in the output variable
+        /// </summary>
+        /// <typeparam name="T">The type to convert to</typeparam>
+        /// <param name="msg">The message</param>
+        /// <param name="output">The output variable</param>
+        /// <param name="Suffix">The Suffix to the message</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper ReadLineQ<T>(out T output, string msg)
+        {
+            Write(msg + Suffix);
+            output = Console.ReadLine().As<T>();
+            return ConsoleHelper.GetInstance();
+        }
+        /// <summary>
+        /// Reads a string from the console and then converts it to the specified type.
+        /// </summary>
+        /// <returns>The converted string read from the console.</returns>
+        public static T ReadLine<T>()
+        {
+            return Console.ReadLine().As<T>();
+        }
+
+        /// <summary>
+        /// Reads a string from the console and then converts it to the specified type.
+        /// </summary>
+        /// <param name="output">The output variable</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public static ConsoleHelper ReadLine<T>(out T output)
+        {
+            output = Console.ReadLine().As<T>();
+            return ConsoleHelper.GetInstance();
+        }
+        #endregion
+
+        #region Validation
         /// <summary>
         /// Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
         /// </summary>
@@ -99,17 +198,6 @@ namespace Pie
         }
 
         /// <summary>
-        /// Reads a string from the console.
-        /// </summary>
-        /// <param name="output">The output variable</param>
-        /// <returns>An instance of ConsoleHelper</returns>
-        public static ConsoleHelper ReadLine(out string output)
-        {
-            output = Console.ReadLine();
-            return ConsoleHelper.GetInstance();
-        }
-
-        /// <summary>
         /// Reads the line into the output, aslong as it passes the validation function
         /// </summary>
         /// <param name="output"></param>
@@ -127,47 +215,21 @@ namespace Pie
         }
 
         /// <summary>
-        /// Reads a string from the console, but prepends it with the specified message
-        /// </summary>
-        /// <param name="msg">The message</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>The string read from the console</returns>
-        public static string ReadLineQ(string msg, string suffix=": ")
-        {
-            Write(msg + suffix);
-            return Console.ReadLine();
-        }
-
-        /// <summary>
         /// Reads a string from the console, but prepends it with the specified message, then returns it if it passes the validation function
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static string ReadLineQV(string msg, Func<string, bool> validate, string def = default(string), string suffix = ": ")
+        public static string ReadLineQV(string msg, Func<string, bool> validate, string def = default(string))
         {
-            string output = ReadLineQ(msg, suffix);
+            string output = ReadLineQ(msg);
             if (validate(output))
             {
                 return output;
             }
             return def;
-        }
-
-        /// <summary>
-        /// Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
-        /// </summary>
-        /// <param name="output"></param>
-        /// <param name="msg"></param>
-        /// <param name="suffix"></param>
-        /// <returns></returns>
-        public static ConsoleHelper ReadLineQ(out string output, string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            output = Console.ReadLine();
-            return ConsoleHelper.GetInstance();
         }
 
         /// <summary>
@@ -177,9 +239,9 @@ namespace Pie
         /// <param name="validate"></param>
         /// <param name="def"></param>
         /// <returns>An instance of ConsoleHelper</returns>
-        public static ConsoleHelper ReadLineQV(out string output, string msg, Func<string, bool> validate, string def = default(string), string suffix = ": ")
+        public static ConsoleHelper ReadLineQV(out string output, string msg, Func<string, bool> validate, string def = default(string))
         {
-            output = ReadLineQ(msg, suffix);
+            output = ReadLineQ(msg);
             if (!validate(output))
             {
                 output = def;
@@ -188,49 +250,21 @@ namespace Pie
         }
 
         /// <summary>
-        /// Reads a string form the console and converts it to the specified type
-        /// </summary>
-        /// <typeparam name="T">The type to convert to</typeparam>
-        /// <param name="msg">The message</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>The string read from the line converted to type T</returns>
-        public static T ReadLineQ<T>(string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            return Console.ReadLine().As<T>();
-        }
-
-        /// <summary>
         /// Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns>The value if it passes the validation function</returns>
-        public static T ReadLineQV<T>(string msg, Func<T, bool> validate, T def = default(T), string suffix = ": ")
+        public static T ReadLineQV<T>(string msg, Func<T, bool> validate, T def = default(T))
         {
-            T output = ReadLineQ<T>(msg, suffix);
+            T output = ReadLineQ<T>(msg);
             if (validate(output))
             {
                 return output;
             }
             return def;
-        }
-
-        /// <summary>
-        /// Reads a string form the console and converts it to the specified type and stores it in the output variable
-        /// </summary>
-        /// <typeparam name="T">The type to convert to</typeparam>
-        /// <param name="msg">The message</param>
-        /// <param name="output">The output variable</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>An instance of ConsoleHelper</returns>
-        public static ConsoleHelper ReadLineQ<T>(out T output, string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            output = Console.ReadLine().As<T>();
-            return ConsoleHelper.GetInstance();
         }
 
         /// <summary>
@@ -240,52 +274,15 @@ namespace Pie
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns>The value if it passes the validation function</returns>
-        public static ConsoleHelper ReadLineQV<T>(out T output, string msg, Func<T, bool> validate, T def = default(T), string suffix = ": ")
+        public static ConsoleHelper ReadLineQV<T>(out T output, string msg, Func<T, bool> validate, T def = default(T))
         {
-            output = ReadLineQ<T>(msg, suffix);
+            output = ReadLineQ<T>(msg);
             if (!validate(output))
             {
                 output = def;
             }
-            return ConsoleHelper.GetInstance();
-        }
-
-        /// <summary>
-        /// Reads a string from the console and then converts it to the specified type.
-        /// </summary>
-        /// <returns>The converted string read from the console.</returns>
-        public static T ReadLine<T>()
-        {
-            return Console.ReadLine().As<T>();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="validate"></param>
-        /// <param name="def"></param>
-        /// <returns></returns>
-        public static T ReadLine<T>(Func<T, bool> validate, T def = default(T))
-        {
-            T output = ReadLine<T>();
-            if (validate(output))
-            {
-                return output;
-            }
-            return def;
-        }
-
-        /// <summary>
-        /// Reads a string from the console and then converts it to the specified type.
-        /// </summary>
-        /// <param name="output">The output variable</param>
-        /// <returns>An instance of ConsoleHelper</returns>
-        public static ConsoleHelper ReadLine<T>(out T output)
-        {
-            output = Console.ReadLine().As<T>();
             return ConsoleHelper.GetInstance();
         }
 
@@ -308,6 +305,26 @@ namespace Pie
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static T ReadLine<T>(Func<T, bool> validate, T def = default(T))
+        {
+            T output = ReadLine<T>();
+            if (validate(output))
+            {
+                return output;
+            }
+            return def;
+        }
+
+        #endregion
+
+        #region Multiple Lines
+        /// <summary>
         /// Yields an IEnumerable containing the read in strings forever
         /// </summary>
         /// <param name="postfix"></param>
@@ -326,14 +343,14 @@ namespace Pie
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="postfix"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static IEnumerable<string> ReadLinesQ(string msg, string postfix = null, string suffix = ": ")
+        public static IEnumerable<string> ReadLinesQ(string msg, string postfix = null)
         {
             int i = 1;
             while (true)
             {
-                Console.Write(msg + suffix, i);
+                Console.Write(msg + Suffix, i);
                 yield return Console.ReadLine();
                 if (postfix != null) WriteLine(postfix);
                 i++;
@@ -359,22 +376,23 @@ namespace Pie
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="postfix"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null, string suffix = ": ")
+        public static IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null)
         {
             int i = 1;
             while (true)
             {
-                Console.Write(msg + suffix,i);
+                Console.Write(msg + Suffix,i);
                 yield return Console.ReadLine().As<T>();
                 if (postfix != null) WriteLine(postfix);
                 i++;
             }
         }
 
-        
+        #endregion
 
+        #region Other Methods
         /// <summary>
         /// Waits for the user to press a key
         /// </summary>
@@ -408,6 +426,8 @@ namespace Pie
             Console.Clear();
             return ConsoleHelper.GetInstance();
         }
+
+        #endregion
 
     }
 }

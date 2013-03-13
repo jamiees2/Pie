@@ -1439,6 +1439,22 @@ namespace Pie.Math
         }
 
         /// <summary>
+        /// Converts the current integer to its icelandic textual representation
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string ToTextICE(this int n)
+        {
+            return n.ToText(new string[]{"Einn", "Tveir", "Þrír", "Fjórir", "Fimm", "Sex", "Sjö", "Átta", "Níu", 
+                "Tíu", "Ellefu", "Tólf", "Þrettán", "Fjórtán", "Fimmtán", "Sextán", "Sautján", "Átján", "Nítján"},
+                new string[] { "Tíu", "Tuttugu", "Þrjátíu", "Fjörutíu", "Fimmtíu", "Sextíu", "Sjötíu", "Áttatíu", "Níutíu" },
+                new string[] { "Mínus", "Einn", "Tíu", "Hundrað", "Þúsund", "Milljón" },
+                "Og", " "
+            );
+
+        }
+
+        /// <summary>
         /// Converts the specified integer to a textual representation
         /// </summary>
         /// <param name="n">The number</param>
@@ -1456,13 +1472,13 @@ namespace Pie.Math
             if (n == 0) return "";
             else if (n < 0) return powers[0]+ space + ToText(-n);
             else if (n < 20) return ones[n - 1];
-            else if (n < 100) return tens[(n / 10) - 1] + ((n % 10 == 0) ? "" : (space + ToText(n % 10)));
-            else if (n < 200) return powers[1] + space + powers[3] + ((n % 100 == 0) ? "" : (andspace + ToText(n % 100)));
-            else if (n < 1000) return ToText(n / 100) + space + powers[3] + ((n % 100 == 0) ? "" : (andspace + ToText(n % 100)));
-            else if (n < 2000) return powers[1] + space + powers[4] + ((n % 1000 == 0) ? "" : (andspace + ToText(n % 1000)));
-            else if (n < 1000000) return ToText(n / 1000) + space + powers[4] + ((n % 1000 == 0) ? "" : (andspace + ToText(n % 1000)));
-            else if (n < 2000000) return powers[1] + space + powers[5] + ((n % 1000000 == 0) ? "" : (andspace + ToText(n % 1000000)));
-            else if (n < 1000000000L) return ToText(n / 1000000) + space + powers[5] + ((n % 1000000 == 0) ? "" : (andspace + ToText(n % 1000000)));
+            else if (n < 100) return tens[(n / 10) - 1] + ((n % 10 == 0) ? "" : (space + ToText(n % 10,ones,tens,powers,and,space)));
+            else if (n < 200) return powers[1] + space + powers[3] + ((n % 100 == 0) ? "" : (andspace + ToText(n % 100, ones, tens, powers, and, space)));
+            else if (n < 1000) return ToText(n / 100, ones, tens, powers, and, space) + space + powers[3] + ((n % 100 == 0) ? "" : (andspace + ToText(n % 100, ones, tens, powers, and, space)));
+            else if (n < 2000) return powers[1] + space + powers[4] + ((n % 1000 == 0) ? "" : (andspace + ToText(n % 1000, ones, tens, powers, and, space)));
+            else if (n < 1000000) return ToText(n / 1000, ones, tens, powers, and, space) + space + powers[4] + ((n % 1000 == 0) ? "" : (andspace + ToText(n % 1000, ones, tens, powers, and, space)));
+            else if (n < 2000000) return powers[1] + space + powers[5] + ((n % 1000000 == 0) ? "" : (andspace + ToText(n % 1000000, ones, tens, powers, and, space)));
+            else if (n < 1000000000L) return ToText(n / 1000000, ones, tens, powers, and, space) + space + powers[5] + ((n % 1000000 == 0) ? "" : (andspace + ToText(n % 1000000, ones, tens, powers, and, space)));
             return "";
         }
         #endregion
