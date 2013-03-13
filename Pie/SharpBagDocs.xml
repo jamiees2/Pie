@@ -6139,6 +6139,14 @@
             <param name="Suffix"></param>
             <returns></returns>
         </member>
+        <member name="M:Pie.PieConsole.ReadLinesQ(System.String[],System.String[])">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.PieConsole.ReadLines``1(System.String)">
             <summary>
             Yields an IEnumerable containing the read in strings forever
@@ -6153,6 +6161,14 @@
             <param name="msg"></param>
             <param name="postfix"></param>
             <param name="Suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLinesQ``1(System.String[],System.String[])">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.Wait(System.String)">

@@ -356,6 +356,30 @@ namespace Pie
         /// <summary>
         /// Yields an IEnumerable containing the read in strings forever
         /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static IEnumerable<List<string>> ReadLinesQ(string[] msg, string[] postfix = null)
+        {
+            int i = 1;
+            List<string> vals = new List<string>();
+            while (true)
+            {
+                for (int j = 0; j < msg.Length; j++)
+                {
+                    Console.Write(msg[j] + Suffix, i);
+                    vals.Add(Console.ReadLine());
+                    if (postfix != null && postfix.Length > j) WriteLine(postfix[j]);
+                }
+                yield return vals;
+                vals.Clear();
+                i++;
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
         public static IEnumerable<T> ReadLines<T>(string postfix = null)
@@ -382,6 +406,30 @@ namespace Pie
                 Console.Write(msg + Suffix,i);
                 yield return Console.ReadLine().As<T>();
                 if (postfix != null) WriteLine(postfix);
+                i++;
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static IEnumerable<List<T>> ReadLinesQ<T>(string[] msg, string[] postfix = null)
+        {
+            int i = 1;
+            List<T> vals = new List<T>();
+            while (true)
+            {
+                for (int j = 0; j < msg.Length; j++)
+                {
+                    Console.Write(msg[j] + Suffix, i);
+                    vals.Add(Console.ReadLine().As<T>());
+                    if (postfix != null && postfix.Length > j) WriteLine(postfix[j]);
+                }
+                yield return vals;
+                vals.Clear();
                 i++;
             }
         }
