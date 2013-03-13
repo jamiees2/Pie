@@ -1,24 +1,4 @@
 
-#/SharpBag/bin/Debug/
-#/SharpBag/bin/Release/reports/
-#/SharpBag/obj/
-#/SharpBag.Tests/bin/
-#/SharpBag.Tests/obj/
-#/SharpBag/SharpBagDocs.xml
-#/SharpBag.Tests/test-results/
-#/TestResults/
-#TestResult.xml
-#*.vsmdi
-#*.userprefs
-#*.VisualState.xml
-#*.vs10x*
-#*.dat
-#*.pdb
-#*.pidb
-#*.docstates
-#*.suo
-#*.user
-#*.old
 
 #################
 ## Eclipse
@@ -27,7 +7,6 @@
 *.pydevproject
 .project
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
