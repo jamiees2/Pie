@@ -65,7 +65,6 @@ local.properties
 
 # Build results
 [Dd]ebug/
-[Rr]elease/
 *_i.c
 *_p.c
 *.ilk
@@ -119,7 +118,6 @@ DocProject/Help/html
 publish
 
 # Others
-[Bb]in
 [Oo]bj
 sql
 TestResults

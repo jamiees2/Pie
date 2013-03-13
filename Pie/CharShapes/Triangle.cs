@@ -113,7 +113,7 @@ namespace Pie.CharShapes
             {
                 builder.AppendLine(symbol.ToString()+symbol.ToString().PadLeft(i-1, ' '));//Print symbol
             }
-            builder.AppendLine(symbol.ToString();//Bottom of triangle
+            builder.AppendLine(symbol.ToString());//Bottom of triangle
             return builder.ToString();
         }
     }
