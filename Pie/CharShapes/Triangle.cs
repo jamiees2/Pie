@@ -61,11 +61,11 @@ namespace Pie.CharShapes
         public static string HalfFTriangleR(int size, char symbol)//Half Filled Triangle Reversed
         {
             StringBuilder builder = new StringBuilder();
+            builder.AppendLine(symbol.ToString());//Bottom of triangle
             for (int i = 1; i < size; i++)
             {
                 builder.AppendLine(symbol+symbol.ToString().PadLeft(i, symbol));//Print symbol
             }
-            builder.AppendLine(symbol.ToString());//Bottom of triangle
             return builder.ToString();
         }
         
