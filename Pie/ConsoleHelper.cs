@@ -24,16 +24,8 @@ namespace Pie
             return Instance;
         }
 
-        /// <summary>
-        /// Writes nothing to the console
-        /// </summary>
-        /// <returns>An instance of the ConsoleHelper</returns>
-        public ConsoleHelper Write()
-        {
-            Console.Write("");
-            return this;
-        }
 
+        #region Write Methods
         /// <summary>
         /// Writes the current instance to the console.
         /// </summary>
@@ -41,11 +33,9 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper Write(object o)
         {
-            Console.Write(o);
-            return this;
+            return PieConsole.Write(o);
         }
 
-        
         /// <summary>
         /// Writes the current instance to the console.
         /// </summary>
@@ -55,8 +45,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper Write(string format, params object[] objects)
         {
-            Console.Write(format, objects);
-            return this;
+            return PieConsole.Write(format, objects);
         }
 
         /// <summary>
@@ -65,8 +54,7 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper WriteLine()
         {
-            Console.WriteLine();
-            return this;
+            return WriteLine("\n");
         }
 
         /// <summary>
@@ -75,8 +63,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper WriteLine(object o)
         {
-            Console.WriteLine(o);
-            return this;
+            return PieConsole.WriteLine(o);
         }
 
         /// <summary>
@@ -87,36 +74,18 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public ConsoleHelper WriteLine(string format, params object[] objects)
         {
-            Console.WriteLine(format, objects);
-            return this;
+            return PieConsole.WriteLine(format, objects);
         }
+        #endregion
 
+        #region Read Methods
         /// <summary>
         /// Reads a string from the console.
         /// </summary>
         /// <returns>The string read from the console.</returns>
         public string ReadLine()
         {
-            return Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
-        /// </summary>
-        /// <param name="validate">The validation function</param>
-        /// <param name="def">The default value</param>
-        /// <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
-        public string ReadLineV(Func<string, bool> validate, string def = default(string))
-        {
-            string line = Console.ReadLine();
-            if (validate(line))
-            {
-                return line;
-            }
-            else
-            {
-                return def;
-            }
+            return PieConsole.ReadLine();
         }
 
         /// <summary>
@@ -126,8 +95,87 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper ReadLine(out string output)
         {
-            output = Console.ReadLine();
-            return this;
+            output = PieConsole.ReadLine();
+            return ConsoleHelper.GetInstance();
+        }
+
+        /// <summary>
+        /// Reads a string from the console, but prepends it with the specified message
+        /// </summary>
+        /// <param name="msg">The message</param>
+        /// <param name="Suffix">The Suffix to the message</param>
+        /// <returns>The string read from the console</returns>
+        public string ReadLineQ(string msg)
+        {
+            return PieConsole.ReadLineQ(msg);
+        }
+
+        /// <summary>
+        /// Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="msg"></param>
+        /// <param name="Suffix"></param>
+        /// <returns></returns>
+        public ConsoleHelper ReadLineQ(out string output, string msg)
+        {
+            return PieConsole.ReadLineQ(out output, msg);
+        }
+
+        /// <summary>
+        /// Reads a string form the console and converts it to the specified type
+        /// </summary>
+        /// <typeparam name="T">The type to convert to</typeparam>
+        /// <param name="msg">The message</param>
+        /// <param name="Suffix">The Suffix to the message</param>
+        /// <returns>The string read from the line converted to type T</returns>
+        public T ReadLineQ<T>(string msg)
+        {
+            return PieConsole.ReadLineQ<T>(msg);
+        }
+
+        /// <summary>
+        /// Reads a string form the console and converts it to the specified type and stores it in the output variable
+        /// </summary>
+        /// <typeparam name="T">The type to convert to</typeparam>
+        /// <param name="msg">The message</param>
+        /// <param name="output">The output variable</param>
+        /// <param name="Suffix">The Suffix to the message</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public ConsoleHelper ReadLineQ<T>(out T output, string msg)
+        {
+            return PieConsole.ReadLineQ<T>(out output, msg);
+        }
+        /// <summary>
+        /// Reads a string from the console and then converts it to the specified type.
+        /// </summary>
+        /// <returns>The converted string read from the console.</returns>
+        public T ReadLine<T>()
+        {
+            return PieConsole.ReadLine<T>();
+        }
+
+        /// <summary>
+        /// Reads a string from the console and then converts it to the specified type.
+        /// </summary>
+        /// <param name="output">The output variable</param>
+        /// <returns>An instance of ConsoleHelper</returns>
+        public ConsoleHelper ReadLine<T>(out T output)
+        {
+            return PieConsole.ReadLine<T>(out output);
+        }
+        #endregion
+
+        #region Validation
+        /// <summary>
+        /// Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
+        /// </summary>
+        /// <param name="validate">The validation function</param>
+        /// <param name="def">The default value</param>
+        /// <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
+        public string ReadLineV(Func<string, bool> validate, string def = default(string))
+        {
+            return PieConsole.ReadLineV(validate, def);
         }
 
         /// <summary>
@@ -139,24 +187,7 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper ReadLineV(out string output, Func<string, bool> validate, string def = default(string))
         {
-            output = Console.ReadLine();
-            if (!validate(output))
-            {
-                output = def;
-            }
-            return this;
-        }
-
-        /// <summary>
-        /// Reads a string from the console, but prepends it with the specified message
-        /// </summary>
-        /// <param name="msg">The message</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>The string read from the console</returns>
-        public string ReadLineQ(string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            return Console.ReadLine();
+            return PieConsole.ReadLineV(out output, validate, def);
         }
 
         /// <summary>
@@ -165,30 +196,11 @@ namespace Pie
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns></returns>
-        public string ReadLineQV(string msg, Func<string, bool> validate, string def = default(string), string suffix = ": ")
+        public string ReadLineQV(string msg, Func<string, bool> validate, string def = default(string))
         {
-            string output = ReadLineQ(msg, suffix);
-            if (validate(output))
-            {
-                return output;
-            }
-            return def;
-        }
-
-        /// <summary>
-        /// Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
-        /// </summary>
-        /// <param name="output"></param>
-        /// <param name="msg"></param>
-        /// <param name="suffix"></param>
-        /// <returns></returns>
-        public ConsoleHelper ReadLineQ(out string output, string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            output = Console.ReadLine();
-            return this;
+            return PieConsole.ReadLineQV(msg, validate, def);
         }
 
         /// <summary>
@@ -198,27 +210,9 @@ namespace Pie
         /// <param name="validate"></param>
         /// <param name="def"></param>
         /// <returns>An instance of ConsoleHelper</returns>
-        public ConsoleHelper ReadLineQV(out string output, string msg, Func<string, bool> validate, string def = default(string), string suffix = ": ")
+        public ConsoleHelper ReadLineQV(out string output, string msg, Func<string, bool> validate, string def = default(string))
         {
-            output = ReadLineQ(msg, suffix);
-            if (!validate(output))
-            {
-                output = def;
-            }
-            return this;
-        }
-
-        /// <summary>
-        /// Reads a string form the console and converts it to the specified type
-        /// </summary>
-        /// <typeparam name="T">The type to convert to</typeparam>
-        /// <param name="msg">The message</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>The string read from the line converted to type T</returns>
-        public T ReadLineQ<T>(string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            return Console.ReadLine().As<T>();
+            return PieConsole.ReadLineQV(out output, msg, validate, def);
         }
 
         /// <summary>
@@ -227,86 +221,25 @@ namespace Pie
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns>The value if it passes the validation function</returns>
-        public T ReadLineQV<T>(string msg, Func<T, bool> validate, T def = default(T), string suffix = ": ")
+        public T ReadLineQV<T>(string msg, Func<T, bool> validate, T def = default(T))
         {
-            T output = ReadLineQ<T>(msg, suffix);
-            if (validate(output))
-            {
-                return output;
-            }
-            return def;
-        }
-
-        /// <summary>
-        /// Reads a string form the console and converts it to the specified type and stores it in the output variable
-        /// </summary>
-        /// <typeparam name="T">The type to convert to</typeparam>
-        /// <param name="msg">The message</param>
-        /// <param name="output">The output variable</param>
-        /// <param name="suffix">The suffix to the message</param>
-        /// <returns>An instance of ConsoleHelper</returns>
-        public ConsoleHelper ReadLineQ<T>(out T output, string msg, string suffix = ": ")
-        {
-            Write(msg + suffix);
-            output = Console.ReadLine().As<T>();
-            return this;
+            return PieConsole.ReadLineQV<T>(msg, validate, def);
         }
 
         /// <summary>
         /// Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
         /// </summary>
+        /// <param name="output"></param>
         /// <param name="msg"></param>
         /// <param name="validate"></param>
         /// <param name="def"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns>The value if it passes the validation function</returns>
-        public ConsoleHelper ReadLineQV<T>(out T output, string msg, Func<T, bool> validate, T def = default(T), string suffix = ": ")
+        public ConsoleHelper ReadLineQV<T>(out T output, string msg, Func<T, bool> validate, T def = default(T))
         {
-            output = ReadLineQ<T>(msg, suffix);
-            if (!validate(output))
-            {
-                output = def;
-            }
-            return this;
-        }
-
-        /// <summary>
-        /// Reads a string from the console and then converts it to the specified type.
-        /// </summary>
-        /// <returns>The converted string read from the console.</returns>
-        public T ReadLine<T>()
-        {
-            return Console.ReadLine().As<T>();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="validate"></param>
-        /// <param name="def"></param>
-        /// <returns></returns>
-        public T ReadLine<T>(Func<T, bool> validate, T def = default(T))
-        {
-            T output = ReadLine<T>();
-            if (validate(output))
-            {
-                return output;
-            }
-            return def;
-        }
-
-        /// <summary>
-        /// Reads a string from the console and then converts it to the specified type.
-        /// </summary>
-        /// <param name="output">The output variable</param>
-        /// <returns>An instance of ConsoleHelper</returns>
-        public ConsoleHelper ReadLine<T>(out T output)
-        {
-            output = Console.ReadLine().As<T>();
-            return this;
+            return PieConsole.ReadLineQV<T>(out output, msg, validate, def);
         }
 
         /// <summary>
@@ -317,16 +250,26 @@ namespace Pie
         /// <param name="validate"></param>
         /// <param name="def"></param>
         /// <returns></returns>
-        public ConsoleHelper ReadLine<T>(out T output, Func<T, bool> validate, T def = default(T))
+        public ConsoleHelper ReadLineV<T>(out T output, Func<T, bool> validate, T def = default(T))
         {
-            output = ReadLine<T>();
-            if (!validate(output))
-            {
-                output = def;
-            }
-            return this;
+            return PieConsole.ReadLineV<T>(out output, validate, def);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="validate"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public T ReadLineV<T>(Func<T, bool> validate, T def = default(T))
+        {
+            return PieConsole.ReadLineV<T>(validate, def);
+        }
+
+        #endregion
+
+        #region Multiple Lines
         /// <summary>
         /// Yields an IEnumerable containing the read in strings forever
         /// </summary>
@@ -334,11 +277,7 @@ namespace Pie
         /// <returns></returns>
         public IEnumerable<string> ReadLines(string postfix = null)
         {
-            while (true)
-            {
-                yield return ReadLine();
-                if (postfix != null) WriteLine(postfix);
-            }
+            return PieConsole.ReadLines(postfix);
         }
 
         /// <summary>
@@ -346,18 +285,11 @@ namespace Pie
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="postfix"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns></returns>
-        public IEnumerable<string> ReadLinesQ(string msg, string postfix = null, string suffix = ": ")
+        public IEnumerable<string> ReadLinesQ(string msg, string postfix = null)
         {
-            int i = 1;
-            while (true)
-            {
-                Console.Write(msg + suffix, i);
-                yield return Console.ReadLine();
-                if (postfix != null) WriteLine(postfix);
-                i++;
-            }
+            return PieConsole.ReadLinesQ(msg, postfix);
         }
 
         /// <summary>
@@ -367,11 +299,7 @@ namespace Pie
         /// <returns></returns>
         public IEnumerable<T> ReadLines<T>(string postfix = null)
         {
-            while (true)
-            {
-                yield return ReadLine<T>();
-                if (postfix != null) WriteLine(postfix);
-            }
+            return PieConsole.ReadLines<T>(postfix);
         }
 
         /// <summary>
@@ -379,20 +307,16 @@ namespace Pie
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="postfix"></param>
-        /// <param name="suffix"></param>
+        /// <param name="Suffix"></param>
         /// <returns></returns>
-        public IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null, string suffix = ": ")
+        public IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null)
         {
-            int i = 1;
-            while (true)
-            {
-                Console.Write(msg + suffix, i);
-                yield return Console.ReadLine().As<T>();
-                if (postfix != null) WriteLine(postfix);
-                i++;
-            }
+            return PieConsole.ReadLinesQ<T>(msg, postfix);
         }
 
+        #endregion
+
+        #region Other Methods
         /// <summary>
         /// Waits for the user to press a key
         /// </summary>
@@ -400,9 +324,7 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper Wait(string msg = "Press any key to continue...")
         {
-            Write(msg);
-            Console.ReadKey();
-            return this;
+            return PieConsole.Wait(msg);
         }
 
         /// <summary>
@@ -412,9 +334,7 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper WaitLine(string msg = "Press any key to continue...")
         {
-            Write(msg);
-            ReadLine();
-            return this;
+            return PieConsole.WaitLine(msg);
         }
 
         /// <summary>
@@ -423,12 +343,13 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public ConsoleHelper Clear()
         {
-            Console.Clear();
-            return this;
+            return PieConsole.Clear();
         }
 
-        /// <see cref="Object.ToStr
-        /// g()"/>
+        #endregion
+
+
+        /// <see cref="Object.ToString()"/>
         public override string ToString()
         {
             return String.Empty;

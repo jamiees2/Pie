@@ -139,7 +139,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper Write<T>(this T o)
         {
-            return ConsoleHelper.GetInstance().Write(o);
+            return PieConsole.Write(o);
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper Write<T>(this T o, string format, params object[] objects)
         {
-            return ConsoleHelper.GetInstance().Write(format, new object[] { o }.Concat(objects).ToArray());
+            return PieConsole.Write(format, new object[] { o }.Concat(objects).ToArray());
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper WriteLine<T>(this T o)
         {
-            return ConsoleHelper.GetInstance().WriteLine(o);
+            return PieConsole.WriteLine(o);
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper WriteLine<T>(this T o, string format, params object[] objects)
         {
-            return ConsoleHelper.GetInstance().WriteLine(format, new object[] { o }.Concat(objects).ToArray());
+            return PieConsole.WriteLine(format, new object[] { o }.Concat(objects).ToArray());
         }
 
         /// <summary>

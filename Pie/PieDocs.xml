@@ -5166,12 +5166,6 @@
             </summary>
             <returns>An instance of the console helper.</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.Write">
-            <summary>
-            Writes nothing to the console
-            </summary>
-            <returns>An instance of the ConsoleHelper</returns>
-        </member>
         <member name="M:Pie.ConsoleHelper.Write(System.Object)">
             <summary>
             Writes the current instance to the console.
@@ -5214,6 +5208,62 @@
             </summary>
             <returns>The string read from the console.</returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine(System.String@)">
+            <summary>
+            Reads a string from the console.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message
+            </summary>
+            <param name="msg">The message</param>
+            <param name="Suffix">The Suffix to the message</param>
+            <returns>The string read from the console</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String@,System.String)">
+            <summary>
+            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
+            </summary>
+            <param name="output"></param>
+            <param name="msg"></param>
+            <param name="Suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="Suffix">The Suffix to the message</param>
+            <returns>The string read from the line converted to type T</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(``0@,System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type and stores it in the output variable
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="output">The output variable</param>
+            <param name="Suffix">The Suffix to the message</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine``1">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <returns>The converted string read from the console.</returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@)">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.ReadLineV(System.Func{System.String,System.Boolean},System.String)">
             <summary>
             Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
@@ -5221,13 +5271,6 @@
             <param name="validate">The validation function</param>
             <param name="def">The default value</param>
             <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine(System.String@)">
-            <summary>
-            Reads a string from the console.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ReadLineV(System.String@,System.Func{System.String,System.Boolean},System.String)">
             <summary>
@@ -5238,34 +5281,17 @@
             <param name="def"></param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String,System.String)">
-            <summary>
-            Reads a string from the console, but prepends it with the specified message
-            </summary>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the console</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQV(System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+        <member name="M:Pie.ConsoleHelper.ReadLineQV(System.String,System.Func{System.String,System.Boolean},System.String)">
             <summary>
             Reads a string from the console, but prepends it with the specified message, then returns it if it passes the validation function
             </summary>
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ(System.String@,System.String,System.String)">
-            <summary>
-            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
-            </summary>
-            <param name="output"></param>
-            <param name="msg"></param>
-            <param name="suffix"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQV(System.String@,System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+        <member name="M:Pie.ConsoleHelper.ReadLineQV(System.String@,System.String,System.Func{System.String,System.Boolean},System.String)">
             <summary>
             Reads the line into the output, aslong as it passes the validation function
             </summary>
@@ -5274,73 +5300,42 @@
             <param name="def"></param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the line converted to type T</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQV``1(System.String,System.Func{``0,System.Boolean},``0,System.String)">
+        <member name="M:Pie.ConsoleHelper.ReadLineQV``1(System.String,System.Func{``0,System.Boolean},``0)">
             <summary>
             Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
             </summary>
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns>The value if it passes the validation function</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQ``1(``0@,System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type and stores it in the output variable
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLineQV``1(``0@,System.String,System.Func{``0,System.Boolean},``0,System.String)">
+        <member name="M:Pie.ConsoleHelper.ReadLineQV``1(``0@,System.String,System.Func{``0,System.Boolean},``0)">
             <summary>
             Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
             </summary>
+            <param name="output"></param>
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns>The value if it passes the validation function</returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine``1">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <returns>The converted string read from the console.</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine``1(System.Func{``0,System.Boolean},``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="validate"></param>
-            <param name="def"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@)">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.ConsoleHelper.ReadLine``1(``0@,System.Func{``0,System.Boolean},``0)">
+        <member name="M:Pie.ConsoleHelper.ReadLineV``1(``0@,System.Func{``0,System.Boolean},``0)">
             <summary>
             
             </summary>
             <typeparam name="T"></typeparam>
             <param name="output"></param>
+            <param name="validate"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLineV``1(System.Func{``0,System.Boolean},``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
             <param name="validate"></param>
             <param name="def"></param>
             <returns></returns>
@@ -5352,13 +5347,13 @@
             <param name="postfix"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLinesQ(System.String,System.String,System.String)">
+        <member name="M:Pie.ConsoleHelper.ReadLinesQ(System.String,System.String)">
             <summary>
             Yields an IEnumerable containing the read in strings forever
             </summary>
             <param name="msg"></param>
             <param name="postfix"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ReadLines``1(System.String)">
@@ -5368,13 +5363,13 @@
             <param name="postfix"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.ConsoleHelper.ReadLinesQ``1(System.String,System.String,System.String)">
+        <member name="M:Pie.ConsoleHelper.ReadLinesQ``1(System.String,System.String)">
             <summary>
             Yields an IEnumerable containing the read in strings forever
             </summary>
             <param name="msg"></param>
             <param name="postfix"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.ConsoleHelper.Wait(System.String)">
@@ -5398,7 +5393,7 @@
             <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.ConsoleHelper.ToString">
-            <see cref="!:Object.ToStr&#xA;            g()"/>
+            <see cref="M:System.Object.ToString"/>
         </member>
         <member name="T:Pie.Collections.MaxHeap`1">
             <summary>
@@ -5949,11 +5944,10 @@
             An upgrade to the usual System.Console
             </summary>
         </member>
-        <member name="M:Pie.PieConsole.Write">
+        <member name="F:Pie.PieConsole._Suffix">
             <summary>
-            Writes nothing to the console
+            Private string for the Suffix
             </summary>
-            <returns>An instance of the ConsoleHelper</returns>
         </member>
         <member name="M:Pie.PieConsole.Write(System.Object)">
             <summary>
@@ -5997,6 +5991,62 @@
             </summary>
             <returns>The string read from the console.</returns>
         </member>
+        <member name="M:Pie.PieConsole.ReadLine(System.String@)">
+            <summary>
+            Reads a string from the console.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ(System.String)">
+            <summary>
+            Reads a string from the console, but prepends it with the specified message
+            </summary>
+            <param name="msg">The message</param>
+            <param name="Suffix">The Suffix to the message</param>
+            <returns>The string read from the console</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ(System.String@,System.String)">
+            <summary>
+            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
+            </summary>
+            <param name="output"></param>
+            <param name="msg"></param>
+            <param name="Suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ``1(System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="Suffix">The Suffix to the message</param>
+            <returns>The string read from the line converted to type T</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLineQ``1(``0@,System.String)">
+            <summary>
+            Reads a string form the console and converts it to the specified type and stores it in the output variable
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="msg">The message</param>
+            <param name="output">The output variable</param>
+            <param name="Suffix">The Suffix to the message</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine``1">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <returns>The converted string read from the console.</returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLine``1(``0@)">
+            <summary>
+            Reads a string from the console and then converts it to the specified type.
+            </summary>
+            <param name="output">The output variable</param>
+            <returns>An instance of ConsoleHelper</returns>
+        </member>
         <member name="M:Pie.PieConsole.ReadLineV(System.Func{System.String,System.Boolean},System.String)">
             <summary>
             Reads the input, runs a validation function on it, and the input if valid, othewise the default value;
@@ -6004,13 +6054,6 @@
             <param name="validate">The validation function</param>
             <param name="def">The default value</param>
             <returns>The string read in, if it passes the validation function, otherwise the default value</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine(System.String@)">
-            <summary>
-            Reads a string from the console.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of ConsoleHelper</returns>
         </member>
         <member name="M:Pie.PieConsole.ReadLineV(System.String@,System.Func{System.String,System.Boolean},System.String)">
             <summary>
@@ -6021,34 +6064,17 @@
             <param name="def"></param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLineQ(System.String,System.String)">
-            <summary>
-            Reads a string from the console, but prepends it with the specified message
-            </summary>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the console</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQV(System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+        <member name="M:Pie.PieConsole.ReadLineQV(System.String,System.Func{System.String,System.Boolean},System.String)">
             <summary>
             Reads a string from the console, but prepends it with the specified message, then returns it if it passes the validation function
             </summary>
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLineQ(System.String@,System.String,System.String)">
-            <summary>
-            Prints out the specified message, and then reads in the input, stores it in the output variable and returns the helper instance
-            </summary>
-            <param name="output"></param>
-            <param name="msg"></param>
-            <param name="suffix"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQV(System.String@,System.String,System.Func{System.String,System.Boolean},System.String,System.String)">
+        <member name="M:Pie.PieConsole.ReadLineQV(System.String@,System.String,System.Func{System.String,System.Boolean},System.String)">
             <summary>
             Reads the line into the output, aslong as it passes the validation function
             </summary>
@@ -6057,36 +6083,17 @@
             <param name="def"></param>
             <returns>An instance of ConsoleHelper</returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLineQ``1(System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>The string read from the line converted to type T</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQV``1(System.String,System.Func{``0,System.Boolean},``0,System.String)">
+        <member name="M:Pie.PieConsole.ReadLineQV``1(System.String,System.Func{``0,System.Boolean},``0)">
             <summary>
             Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
             </summary>
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns>The value if it passes the validation function</returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLineQ``1(``0@,System.String,System.String)">
-            <summary>
-            Reads a string form the console and converts it to the specified type and stores it in the output variable
-            </summary>
-            <typeparam name="T">The type to convert to</typeparam>
-            <param name="msg">The message</param>
-            <param name="output">The output variable</param>
-            <param name="suffix">The suffix to the message</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLineQV``1(``0@,System.String,System.Func{``0,System.Boolean},``0,System.String)">
+        <member name="M:Pie.PieConsole.ReadLineQV``1(``0@,System.String,System.Func{``0,System.Boolean},``0)">
             <summary>
             Reads a string from the console, but prepends it with the specified message, then converts it to the specified type.
             </summary>
@@ -6094,37 +6101,24 @@
             <param name="msg"></param>
             <param name="validate"></param>
             <param name="def"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns>The value if it passes the validation function</returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLine``1">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <returns>The converted string read from the console.</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine``1(System.Func{``0,System.Boolean},``0)">
+        <member name="M:Pie.PieConsole.ReadLineV``1(``0@,System.Func{``0,System.Boolean},``0)">
             <summary>
             
             </summary>
             <typeparam name="T"></typeparam>
+            <param name="output"></param>
             <param name="validate"></param>
             <param name="def"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLine``1(``0@)">
-            <summary>
-            Reads a string from the console and then converts it to the specified type.
-            </summary>
-            <param name="output">The output variable</param>
-            <returns>An instance of ConsoleHelper</returns>
-        </member>
-        <member name="M:Pie.PieConsole.ReadLine``1(``0@,System.Func{``0,System.Boolean},``0)">
+        <member name="M:Pie.PieConsole.ReadLineV``1(System.Func{``0,System.Boolean},``0)">
             <summary>
             
             </summary>
             <typeparam name="T"></typeparam>
-            <param name="output"></param>
             <param name="validate"></param>
             <param name="def"></param>
             <returns></returns>
@@ -6136,13 +6130,13 @@
             <param name="postfix"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLinesQ(System.String,System.String,System.String)">
+        <member name="M:Pie.PieConsole.ReadLinesQ(System.String,System.String)">
             <summary>
             Yields an IEnumerable containing the read in strings forever
             </summary>
             <param name="msg"></param>
             <param name="postfix"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.ReadLines``1(System.String)">
@@ -6152,13 +6146,13 @@
             <param name="postfix"></param>
             <returns></returns>
         </member>
-        <member name="M:Pie.PieConsole.ReadLinesQ``1(System.String,System.String,System.String)">
+        <member name="M:Pie.PieConsole.ReadLinesQ``1(System.String,System.String)">
             <summary>
             Yields an IEnumerable containing the read in strings forever
             </summary>
             <param name="msg"></param>
             <param name="postfix"></param>
-            <param name="suffix"></param>
+            <param name="Suffix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.Wait(System.String)">
@@ -6180,6 +6174,11 @@
             Clears the console
             </summary>
             <returns>An instance of ConsoleHelper</returns>
+        </member>
+        <member name="P:Pie.PieConsole.Suffix">
+            <summary>
+            The character to use after questions
+            </summary>
         </member>
         <member name="T:Pie.Networking.Services.ServerNameService">
             <summary>

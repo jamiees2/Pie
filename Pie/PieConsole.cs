@@ -18,18 +18,9 @@ namespace Pie
         /// <summary>
         /// The character to use after questions
         /// </summary>
-        public static string Suffix { get {return _Suffix; } set { _Suffix = value; } };
+        public static string Suffix { get {return _Suffix; } set { _Suffix = value; } }
 
         #region Write Methods
-        /// <summary>
-        /// Writes nothing to the console
-        /// </summary>
-        /// <returns>An instance of the ConsoleHelper</returns>
-        public static ConsoleHelper Write()
-        {
-            return ConsoleHelper.GetInstance().Write();
-        }
-
         /// <summary>
         /// Writes the current instance to the console.
         /// </summary>
@@ -37,7 +28,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper Write(object o)
         {
-            return ConsoleHelper.GetInstance().Write(o);
+            Console.Write(o);
+            return ConsoleHelper.GetInstance();
         }
 
         /// <summary>
@@ -49,7 +41,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper Write(string format, params object[] objects)
         {
-            return ConsoleHelper.GetInstance().Write(format, objects);
+            Console.Write(format, objects);
+            return ConsoleHelper.GetInstance();
         }
 
         /// <summary>
@@ -58,7 +51,8 @@ namespace Pie
         /// <returns>An instance of ConsoleHelper</returns>
         public static ConsoleHelper WriteLine()
         {
-            return WriteLine("\n");
+            Console.WriteLine();
+            return ConsoleHelper.GetInstance();
         }
 
         /// <summary>
@@ -67,7 +61,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper WriteLine(object o)
         {
-            return ConsoleHelper.GetInstance().WriteLine(o);
+            Console.WriteLine(o);
+            return ConsoleHelper.GetInstance();
         }
 
         /// <summary>
@@ -78,7 +73,8 @@ namespace Pie
         /// <returns>A console helper.</returns>
         public static ConsoleHelper WriteLine(string format, params object[] objects)
         {
-            return ConsoleHelper.GetInstance().WriteLine(format, objects);
+            Console.WriteLine(format, objects);
+            return ConsoleHelper.GetInstance();
         }
         #endregion
 
@@ -294,7 +290,7 @@ namespace Pie
         /// <param name="validate"></param>
         /// <param name="def"></param>
         /// <returns></returns>
-        public static ConsoleHelper ReadLine<T>(out T output, Func<T, bool> validate, T def = default(T))
+        public static ConsoleHelper ReadLineV<T>(out T output, Func<T, bool> validate, T def = default(T))
         {
             output = ReadLine<T>();
             if (!validate(output))
@@ -311,7 +307,7 @@ namespace Pie
         /// <param name="validate"></param>
         /// <param name="def"></param>
         /// <returns></returns>
-        public static T ReadLine<T>(Func<T, bool> validate, T def = default(T))
+        public static T ReadLineV<T>(Func<T, bool> validate, T def = default(T))
         {
             T output = ReadLine<T>();
             if (validate(output))
