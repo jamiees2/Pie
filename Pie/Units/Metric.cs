@@ -1,4 +1,4 @@
-﻿using System;
+        ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ namespace Pie.Units
 {
     public class Metric
     {
-        public double MM(int mm, string measurement)//Millimeter
+        public static double MM(double mm, string measurement)//Millimeter
         {
             switch (measurement)
             {
@@ -24,7 +24,7 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double CM(int cm, string measurement)//Centimeter
+        public static double CM(double cm, string measurement)//Centimeter
         {
             switch (measurement)
             {
@@ -44,7 +44,7 @@ namespace Pie.Units
             }
         }
         
-        public double I(int i, string measurement)//Tommur/Inches
+        public static double I(double i, string measurement)//Tommur/Inches
         {
             switch(measurement)
             {
@@ -55,7 +55,7 @@ namespace Pie.Units
             }
         }
         
-        public double D(int d, string measurement)//Decimeter
+        public static double D(double d, string measurement)//Decimeter
         {
             switch (measurement)
             {
@@ -72,7 +72,7 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double M(int m, string measurement)//Meter
+        public static double M(double m, string measurement)//Meter
         {
             switch (measurement)
             {
@@ -89,7 +89,7 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double K(int k, string measurement)//Kilometer
+        public static double K(double k, string measurement)//Kilometer
         {
             switch (measurement)
             {
@@ -108,7 +108,7 @@ namespace Pie.Units
                     return 0;
             }
         }
-        public double E(int e, string measurement)//Ekrar/Acres
+        public static double E(double e, string measurement)//Ekrar/Acres
         {
             switch (measurement)
             {
