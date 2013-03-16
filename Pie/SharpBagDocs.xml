@@ -5356,6 +5356,14 @@
             <param name="Suffix"></param>
             <returns></returns>
         </member>
+        <member name="M:Pie.ConsoleHelper.ReadLinesQ(System.String[],System.String[])">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pie.ConsoleHelper.ReadLines``1(System.String)">
             <summary>
             Yields an IEnumerable containing the read in strings forever
@@ -5370,6 +5378,14 @@
             <param name="msg"></param>
             <param name="postfix"></param>
             <param name="Suffix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.ConsoleHelper.ReadLinesQ``1(System.String[],System.String[])">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.ConsoleHelper.Wait(System.String)">
@@ -6140,6 +6156,14 @@
             <returns></returns>
         </member>
         <member name="M:Pie.PieConsole.ReadLinesQ(System.String[],System.String[])">
+            <summary>
+            Yields an IEnumerable containing the read in strings forever
+            </summary>
+            <param name="msg"></param>
+            <param name="postfix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.PieConsole.ReadLinesQ(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.Object,System.String})">
             <summary>
             Yields an IEnumerable containing the read in strings forever
             </summary>
@@ -9381,6 +9405,13 @@
             </summary>
             <param name="s"></param>
             <param name="n"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pie.Strings.StringExtensions.Evaluate(System.String)">
+            <summary>
+            Evaluates the math expression
+            </summary>
+            <param name="expression"></param>
             <returns></returns>
         </member>
         <member name="M:Pie.Strings.StringExtensions.IsLike(System.String,System.String)">

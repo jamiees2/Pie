@@ -380,6 +380,30 @@ namespace Pie
         /// <summary>
         /// Yields an IEnumerable containing the read in strings forever
         /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static IEnumerable<Dictionary<object,string>> ReadLinesQ(Dictionary<string,object> msg, Dictionary<object,string> postfix = null)
+        {
+            int i = 1;
+            Dictionary<object, string> vals = new Dictionary<object, string>();
+            while (true)
+            {
+                foreach (var message in msg)
+                {
+                    Console.Write(message.Key + Suffix, i);
+                    vals.Add(message.Value,Console.ReadLine());
+                    if (postfix != null && postfix.ContainsKey(message.Value)) WriteLine(postfix[message.Value]);
+                }
+                yield return vals;
+                vals.Clear();
+                i++;
+            }
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
         public static IEnumerable<T> ReadLines<T>(string postfix = null)

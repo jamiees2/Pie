@@ -295,6 +295,17 @@ namespace Pie
         /// <summary>
         /// Yields an IEnumerable containing the read in strings forever
         /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static IEnumerable<List<string>> ReadLinesQ(string[] msg, string[] postfix = null)
+        {
+            return PieConsole.ReadLinesQ(msg, postfix);
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
         /// <param name="postfix"></param>
         /// <returns></returns>
         public IEnumerable<T> ReadLines<T>(string postfix = null)
@@ -310,6 +321,17 @@ namespace Pie
         /// <param name="Suffix"></param>
         /// <returns></returns>
         public IEnumerable<T> ReadLinesQ<T>(string msg, string postfix = null)
+        {
+            return PieConsole.ReadLinesQ<T>(msg, postfix);
+        }
+
+        /// <summary>
+        /// Yields an IEnumerable containing the read in strings forever
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public IEnumerable<List<T>> ReadLinesQ<T>(string[] msg, string[] postfix = null)
         {
             return PieConsole.ReadLinesQ<T>(msg, postfix);
         }

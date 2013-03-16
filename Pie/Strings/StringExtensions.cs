@@ -541,6 +541,20 @@ namespace Pie.Strings
             return s.Substring(0, s.Length - System.Math.Max(0, n));
         }
 
+        /// <summary>
+        /// Evaluates the math expression
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public static double Evaluate(this string expression)
+        {
+            System.Data.DataTable table = new System.Data.DataTable();
+            table.Columns.Add("expression", typeof(string), expression);
+            System.Data.DataRow row = table.NewRow();
+            table.Rows.Add(row);
+            return double.Parse((string)row["expression"]);
+        }
+
         #region Regex
         /// <summary>
         /// Checks wether the selected string matches a specified expression
